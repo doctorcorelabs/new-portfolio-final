@@ -15,10 +15,14 @@ export default {
                 "border-dark": "rgba(255, 255, 255, 0.1)", // Glassy border
                 "accent-green": "#ffffff", // Changed to white for monochrome, keeping key to avoid breaking refs
                 "glass-surface": "rgba(255, 255, 255, 0.05)",
+                "accent-cyan": "#06b6d4",
+                "accent-emerald": "#10b981",
+                "accent-blue": "#3b82f6",
             },
             fontFamily: {
                 display: ["Inter", "sans-serif"],
                 body: ["Inter", "sans-serif"],
+                mono: ["JetBrains Mono", "monospace"],
             },
             borderRadius: {
                 DEFAULT: "0.5rem",

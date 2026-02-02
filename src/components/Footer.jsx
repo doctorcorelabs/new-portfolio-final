@@ -40,7 +40,7 @@ const Footer = () => {
 
             {/* Bottom Bar */}
             <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 text-xs text-gray-500">
-                <p>© 2024 Daivan Febri Juan Setiya. All rights reserved.</p>
+                <p>© 2026 Daivan Febri Juan Setiya. All rights reserved.</p>
                 <p className="mt-2 md:mt-0">Crafted with React, Tailwind CSS & Coffee ☕</p>
             </div>
         </footer>

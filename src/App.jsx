@@ -9,8 +9,10 @@ import Experience from './components/Experience';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import AboutPage from './pages/AboutPage';
 
-function App() {
+function Home() {
   return (
     <>
       <div className="grain-overlay opacity-30 dark:opacity-20 mix-blend-overlay"></div>
@@ -34,6 +36,15 @@ function App() {
         <Footer />
       </main>
     </>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<AboutPage />} />
+    </Routes>
   );
 }
 
