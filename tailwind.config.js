@@ -11,12 +11,15 @@ export default {
                 primary: "#FFFFFF",
                 "background-light": "#F5F5F5",
                 "background-dark": "#050505", // Deeper black
+                "background-emerald-dark": "#022c22",
                 "card-dark": "rgba(20, 20, 20, 0.6)", // Glassy semi-transparent default
                 "border-dark": "rgba(255, 255, 255, 0.1)", // Glassy border
+                "border-emerald": "#059669",
                 "accent-green": "#ffffff", // Changed to white for monochrome, keeping key to avoid breaking refs
                 "glass-surface": "rgba(255, 255, 255, 0.05)",
                 "accent-cyan": "#06b6d4",
                 "accent-emerald": "#10b981",
+                "accent-emerald-dim": "rgba(16, 185, 129, 0.1)",
                 "accent-blue": "#3b82f6",
             },
             fontFamily: {
@@ -29,6 +32,8 @@ export default {
             },
             backgroundImage: {
                 'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+                'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%2310b981\\' fill-opacity=\\'0.05\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                'medical-grid': "linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px)"
             },
             backdropBlur: {
                 xs: '2px',

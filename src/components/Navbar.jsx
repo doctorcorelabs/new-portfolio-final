@@ -10,7 +10,7 @@ const Navbar = () => {
         { name: 'Education', href: '/education' },
         { name: 'Honors & Awards', href: '/awards' },
         { name: 'Research', href: '/research' },
-        { name: 'Experience', href: '#experience' },
+        { name: 'Experience', href: '/experience' },
         { name: 'Certifications', href: '#certifications' },
         { name: 'Contact', href: '#contact' },
     ];
