@@ -36,6 +36,7 @@ INTERNATIONAL:
 •	1st Author - Poster Presenter - 2024 Korean Society of Hematology International Conference and 65th Annual Meeting (ICKSH 2024)
 •	1st Author - Oral Presentation - The 1st International Conference MYHAM 2024 (Muhammadiyah Yogyakarta - Hospital & Healthcare Management)
 PUBLICATIONS
+•	Exploration of Amomum cardamomum Seed-Derived Compounds: LC-MS Profiling, Network Pharmacology, and Computational Analyses for Innovative Multi-Targeted Breast Cancer Therapy
 •	Peran Microbiome Gut Axis Dalam Perkembangan Dan Kekambuhan Chronic Myeloid Leukemia: Systematic Review
 •	A Comparative Analysis Of Colonoscopy With Computer-Aided Detection And Standard Colonoscopy In The Detection Of Colorectal Adenomas And Polyps: A Systematic Review
 •	The role of the microbiome gut axis in the development and relapse of chronic myeloid leukemia: Systematic review

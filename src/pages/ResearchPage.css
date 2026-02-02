@@ -1,0 +1,201 @@
+/* Research Page Specific Styles */
+.emerald-pulse-bg {
+    background: radial-gradient(circle at 80% 20%, #064e3b 0%, #0a0a0a 60%);
+}
+
+.card-emerald-border {
+    border: 1px solid #1f2937;
+    transition: all 0.3s ease;
+}
+
+.card-emerald-border:hover {
+    border-color: #10b981;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+.molecule-wrapper {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.molecule-structure {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: rotateMolecule 20s linear infinite;
+}
+
+@keyframes rotateMolecule {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+.atom {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #34d399, #065f46);
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.6);
+}
+
+.atom.center {
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at 30% 30%, #10b981, #064e3b);
+    z-index: 10;
+}
+
+.atom.p1 {
+    top: 20%;
+    left: 20%;
+    transform: translateZ(50px);
+}
+
+.atom.p2 {
+    top: 20%;
+    right: 20%;
+    transform: translateZ(-50px);
+}
+
+.atom.p3 {
+    bottom: 20%;
+    left: 20%;
+    transform: translateZ(-50px);
+}
+
+.atom.p4 {
+    bottom: 20%;
+    right: 20%;
+    transform: translateZ(50px);
+}
+
+.atom.p5 {
+    top: 0%;
+    left: 50%;
+    transform: translateZ(80px);
+}
+
+.atom.p6 {
+    bottom: 0%;
+    left: 50%;
+    transform: translateZ(-80px);
+}
+
+.bond-line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.8), rgba(16, 185, 129, 0));
+    transform-origin: left center;
+}
+
+.bond-line:nth-child(1) {
+    transform: rotate(45deg) rotateY(45deg);
+}
+
+.bond-line:nth-child(2) {
+    transform: rotate(135deg) rotateY(45deg);
+}
+
+.bond-line:nth-child(3) {
+    transform: rotate(225deg) rotateY(45deg);
+}
+
+.bond-line:nth-child(4) {
+    transform: rotate(315deg) rotateY(45deg);
+}
+
+.bond-line:nth-child(5) {
+    transform: rotateX(90deg);
+}
+
+.timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, #10b981 0%, #1f2937 100%);
+}
+
+.pub-marker-icon {
+    position: absolute;
+    left: -24px;
+    top: 24px;
+    width: 20px;
+    height: 20px;
+    background-color: #0a0a0a;
+    border: 2px solid #10b981;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pub-marker-icon::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: #10b981;
+    border-radius: 50%;
+}
+
+.chart-mini {
+    height: 60px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #333;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.chart-line {
+    stroke: #10b981;
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawLine 2s linear forwards;
+}
+
+@keyframes drawLine {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.scatter-dot {
+    fill: #10b981;
+    opacity: 0.6;
+    animation: pulseDot 2s infinite alternate;
+}
+
+@keyframes pulseDot {
+    from {
+        r: 2;
+        opacity: 0.4;
+    }
+
+    to {
+        r: 4;
+        opacity: 0.8;
+    }
+}

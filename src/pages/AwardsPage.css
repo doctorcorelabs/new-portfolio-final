@@ -1,7 +1,3 @@
-body {
-    /* font-family: "Inter", sans-serif; -- Inherited */
-}
-
 .emerald-pulse-bg {
     background: radial-gradient(circle at 20% 40%, #064e3b 0%, #0a0a0a 60%);
 }
