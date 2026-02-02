@@ -1,0 +1,98 @@
+body {
+    /* font-family: "Inter", sans-serif; -- Inherited from global */
+    /* background-color: #0a0a0a; -- Global */
+    /* color: #e5e7eb; -- Global */
+}
+
+.emerald-pulse-bg {
+    background: radial-gradient(circle at 50% 30%, #022c22 0%, #0a0a0a 70%);
+}
+
+.card-cyan-border {
+    border: 1px solid #1f2937;
+    transition: all 0.3s ease;
+}
+
+.card-cyan-border:hover {
+    border-color: #06b6d4;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.1);
+}
+
+.microscope-container {
+    perspective: 1000px;
+}
+
+.microscope-abstract {
+    transform-style: preserve-3d;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotateY(5deg);
+    }
+}
+
+.lens-ring {
+    border: 2px solid #06b6d4;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px #06b6d4;
+    opacity: 0.6;
+}
+
+.scale-bar {
+    height: 4px;
+    background-color: #1f2937;
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.scale-fill {
+    height: 100%;
+    /* background defined via utility classes for gradients */
+    border-radius: 2px;
+}
+
+.scale-tick {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #0a0a0a;
+}
+
+.tech-marker {
+    position: relative;
+}
+
+.tech-marker::before {
+    content: '';
+    position: absolute;
+    left: -17px;
+    top: 6px;
+    width: 6px;
+    height: 6px;
+    background-color: #06b6d4;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #06b6d4;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, #06b6d4 0%, #1f2937 100%);
+}

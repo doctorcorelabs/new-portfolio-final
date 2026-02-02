@@ -7,8 +7,8 @@ const Navbar = () => {
     const links = [
         { name: 'Home', href: '#' },
         { name: 'About', href: '/about' },
-        { name: 'Education', href: '#education' },
-        { name: 'Honors & Awards', href: '#awards' },
+        { name: 'Education', href: '/education' },
+        { name: 'Honors & Awards', href: '/awards' },
         { name: 'Research', href: '#research' },
         { name: 'Experience', href: '#experience' },
         { name: 'Certifications', href: '#certifications' },

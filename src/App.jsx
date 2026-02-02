@@ -11,6 +11,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { Routes, Route } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
+import EducationPage from './pages/EducationPage';
+import AwardsPage from './pages/AwardsPage';
 
 function Home() {
   return (
@@ -44,6 +46,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<AboutPage />} />
+      <Route path="/education" element={<EducationPage />} />
+      <Route path="/awards" element={<AwardsPage />} />
     </Routes>
   );
 }
