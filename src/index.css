@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body;
+  }
+}
+
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+  background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCi1YUCIMHZeYROuJcnfe2MIOhqHjadj26Bhrx6_XW1kQ0rq0pb86B8LkhmPYV5qOAquVsqnWRQcSz_ajBGAuYCo165xXSHpYGnbtWmUc8vB17TzTF1jx2PTjJOv4XYONkoQ_i80R2uQM9uHOEN7dLxSARz-rc0a7jv1jooU2Z8vCvhV71Z8whZ7mzKRIvMOxQjkL7PQhOboWYxKWb1_I7yyuIjBYqgwOjlFPE3muU1_MEz7u-eBw5nQLoHNPsB59VMtVRsiq7nQr9B);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+/* Aurora Wave Animations */
+@keyframes waveFlow {
+
+  0%,
+  100% {
+    transform: translateX(-20%) scaleY(1);
+  }
+
+  50% {
+    transform: translateX(20%) scaleY(1.2);
+  }
+}
+
+@keyframes wavePath {
+
+  0%,
+  100% {
+    d: path("M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z");
+  }
+
+  50% {
+    d: path("M0,80 C360,20 720,100 1080,40 C1260,20 1380,80 1440,60 L1440,120 L0,120 Z");
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(34, 197, 94, 0.6);
+  }
+}
+
+/* New Animations for Hero Image Frame */
+@keyframes liquid-glass {
+  0% {
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  }
+
+  33% {
+    border-radius: 52% 48% 51% 49% / 51% 49% 52% 48%;
+  }
+
+  66% {
+    border-radius: 49% 51% 48% 52% / 49% 52% 48% 51%;
+  }
+
+  100% {
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  }
+}
+
+@keyframes star-shimmer {
+  0% {
+    opacity: 0.3;
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02) rotate(180deg);
+  }
+
+  100% {
+    opacity: 0.3;
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes dissolve-pulse {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+.animate-liquid {
+  animation: liquid-glass 8s ease-in-out infinite;
+}
+
+.animate-star-shimmer {
+  animation: star-shimmer 15s linear infinite;
+}
+
+.animate-dissolve {
+  animation: dissolve-pulse 4s ease-in-out infinite;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Card hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
