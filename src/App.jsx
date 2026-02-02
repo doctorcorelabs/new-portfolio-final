@@ -15,6 +15,7 @@ import EducationPage from './pages/EducationPage';
 import AwardsPage from './pages/AwardsPage';
 import ResearchPage from './pages/ResearchPage';
 import ExperiencePage from './pages/ExperiencePage';
+import CertificationsPage from './pages/CertificationsPage';
 
 function Home() {
   return (
@@ -52,6 +53,7 @@ function App() {
       <Route path="/awards" element={<AwardsPage />} />
       <Route path="/research" element={<ResearchPage />} />
       <Route path="/experience" element={<ExperiencePage />} />
+      <Route path="/certifications" element={<CertificationsPage />} />
     </Routes>
   );
 }

@@ -37,6 +37,29 @@ export default {
             },
             backdropBlur: {
                 xs: '2px',
+            },
+            keyframes: {
+                scanMove: {
+                    '0%': { top: '-10%', opacity: '0' },
+                    '10%': { opacity: '1' },
+                    '90%': { opacity: '1' },
+                    '100%': { top: '110%', opacity: '0' },
+                },
+                scanOverlay: {
+                    '0%': { top: '-10%', opacity: '0' },
+                    '10%': { opacity: '1' },
+                    '90%': { opacity: '1' },
+                    '100%': { top: '110%', opacity: '0' },
+                },
+                'pulse-glow': {
+                    '0%, 100%': { opacity: '1' },
+                    '50%': { opacity: '0.7' },
+                }
+            },
+            animation: {
+                'scan-move': 'scanMove 3s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+                'scan-overlay': 'scanOverlay 3s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+                'pulse-glow': 'pulse-glow 2s infinite',
             }
         },
     },

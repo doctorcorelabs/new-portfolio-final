@@ -11,7 +11,7 @@ const Navbar = () => {
         { name: 'Honors & Awards', href: '/awards' },
         { name: 'Research', href: '/research' },
         { name: 'Experience', href: '/experience' },
-        { name: 'Certifications', href: '#certifications' },
+        { name: 'Certifications', href: '/certifications' },
         { name: 'Contact', href: '#contact' },
     ];
 
