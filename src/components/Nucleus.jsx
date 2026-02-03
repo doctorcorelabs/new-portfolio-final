@@ -510,6 +510,13 @@ const Nucleus = () => {
 
                                 <div className="h-px w-full bg-gradient-to-r from-emerald-500/30 via-transparent to-transparent my-8"></div>
 
+                                {/* Iframe Embed */}
+                                {selectedPost.iframe_embed && (
+                                    <div className="mb-8 w-full rounded-xl overflow-hidden border border-gray-800 bg-black/50 shadow-lg">
+                                        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(selectedPost.iframe_embed, { ADD_TAGS: ['iframe'], ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling', 'src', 'width', 'height'] }) }} />
+                                    </div>
+                                )}
+
                                 {/* Rich Text Content */}
                                 <div
                                     className="prose prose-invert prose-lg max-w-none

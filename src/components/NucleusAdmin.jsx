@@ -34,10 +34,12 @@ const NucleusAdmin = () => {
         summary: '',
         content: '',
         image_url: '',
+        iframe_embed: '',
         category: 'Announcement',
         is_published: true,
         impact_score: 80
     });
+    const [driveLink, setDriveLink] = useState('');
     const [editingId, setEditingId] = useState(null);
     const [message, setMessage] = useState({ type: '', text: '' });
     const [previewMode, setPreviewMode] = useState(false);
@@ -184,6 +186,38 @@ const NucleusAdmin = () => {
         }
     };
 
+    const convertDriveLink = () => {
+        if (!driveLink) return;
+
+        // Extract File ID from standard Drive sharing links
+        // Formats: 
+        // https://drive.google.com/file/d/FILE_ID/view...
+        // https://drive.google.com/open?id=FILE_ID
+
+        let fileId = '';
+        const patterns = [
+            /\/file\/d\/([^/]+)/,
+            /id=([^&]+)/
+        ];
+
+        for (let pattern of patterns) {
+            const match = driveLink.match(pattern);
+            if (match && match[1]) {
+                fileId = match[1];
+                break;
+            }
+        }
+
+        if (fileId) {
+            const iframeCode = `<iframe src="https://drive.google.com/file/d/${fileId}/preview" width="100%" height="480" allow="autoplay"></iframe>`;
+            setFormData({ ...formData, iframe_embed: iframeCode });
+            setDriveLink('');
+            showMessage('success', 'Drive link converted to iframe info');
+        } else {
+            showMessage('error', 'Could not extract File ID from link');
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -219,9 +253,10 @@ const NucleusAdmin = () => {
     };
 
     const resetForm = () => {
-        setFormData({ title: '', summary: '', content: '', image_url: '', category: 'Announcement', is_published: true, impact_score: 80 });
+        setFormData({ title: '', summary: '', content: '', image_url: '', iframe_embed: '', category: 'Announcement', is_published: true, impact_score: 80 });
         setEditingId(null);
         setPreviewMode(false);
+        setDriveLink('');
     };
 
     const handleEdit = (post) => {
@@ -230,6 +265,7 @@ const NucleusAdmin = () => {
             summary: post.summary,
             content: post.content,
             image_url: post.image_url || '',
+            iframe_embed: post.iframe_embed || '',
             category: post.category || 'Announcement',
             is_published: post.is_published !== false,
             impact_score: post.impact_score || 60
@@ -453,6 +489,10 @@ const NucleusAdmin = () => {
                                         </div>
                                         <h3 className="text-xl font-bold text-white mb-2">{formData.title || 'Untitled'}</h3>
                                         <p className="text-gray-400 text-sm mb-4 font-mono border-l-2 border-emerald-500/40 pl-3">{formData.summary || 'No summary'}</p>
+                                        <p className="text-gray-400 text-sm mb-4 font-mono border-l-2 border-emerald-500/40 pl-3">{formData.summary || 'No summary'}</p>
+                                        {formData.iframe_embed && (
+                                            <div className="mb-4 bg-black/50 p-2 rounded border border-gray-800" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(formData.iframe_embed, { ADD_TAGS: ['iframe'], ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling'] }) }} />
+                                        )}
                                         <div className="prose prose-invert prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(formData.content) }} />
                                     </div>
                                     <button
@@ -476,6 +516,34 @@ const NucleusAdmin = () => {
                                             required
                                             className="w-full bg-[#0a0a0a] border border-gray-800 rounded px-4 py-3 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/30 text-white placeholder-gray-700 transition-all font-mono text-sm"
                                             placeholder="Enter transmission title..."
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-[10px] font-mono text-gray-500 mb-2 uppercase tracking-widest">Drive_Integrator</label>
+                                        <div className="flex gap-2 mb-2">
+                                            <input
+                                                type="text"
+                                                value={driveLink}
+                                                onChange={(e) => setDriveLink(e.target.value)}
+                                                className="flex-1 bg-[#0a0a0a] border border-gray-800 rounded px-4 py-2 focus:outline-none focus:border-emerald-500/50 text-white placeholder-gray-700 font-mono text-xs"
+                                                placeholder="Paste Google Drive Link..."
+                                            />
+                                            <button
+                                                type="button"
+                                                onClick={convertDriveLink}
+                                                className="bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-500/30 px-3 rounded text-[10px] font-mono uppercase tracking-wider transition-colors"
+                                            >
+                                                Convert
+                                            </button>
+                                        </div>
+                                        <textarea
+                                            name="iframe_embed"
+                                            value={formData.iframe_embed}
+                                            onChange={handleChange}
+                                            rows="3"
+                                            className="w-full bg-[#0a0a0a] border border-gray-800 rounded px-4 py-3 focus:outline-none focus:border-emerald-500/50 text-gray-400 font-mono text-xs"
+                                            placeholder="<iframe src='...' ></iframe>"
                                         />
                                     </div>
 
