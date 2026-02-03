@@ -15,6 +15,7 @@ const AuroraWave = () => {
                         background: 'linear-gradient(90deg, transparent, #06b6d4, #3b82f6, transparent)',
                         filter: 'blur(60px)',
                         animation: 'waveFlow 12s ease-in-out infinite',
+                        willChange: 'transform'
                     }}
                 />
                 {/* Layer 2 - Magenta/Pink */}
@@ -24,6 +25,7 @@ const AuroraWave = () => {
                         background: 'linear-gradient(90deg, transparent, #ec4899, #a855f7, transparent)',
                         filter: 'blur(50px)',
                         animation: 'waveFlow 15s ease-in-out infinite reverse',
+                        willChange: 'transform'
                     }}
                 />
                 {/* Layer 3 - Orange/Amber */}
@@ -33,6 +35,7 @@ const AuroraWave = () => {
                         background: 'linear-gradient(90deg, transparent, #f97316, #eab308, transparent)',
                         filter: 'blur(60px)',
                         animation: 'waveFlow 10s ease-in-out infinite',
+                        willChange: 'transform'
                     }}
                 />
             </div>
@@ -56,15 +59,33 @@ const AuroraWave = () => {
                     </linearGradient>
                 </defs>
                 <path
-                    d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z"
                     fill="url(#waveGradient1)"
-                    style={{ animation: 'wavePath 18s ease-in-out infinite' }}
-                />
+                >
+                    <animate
+                        attributeName="d"
+                        values="
+                            M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z;
+                            M0,80 C360,20 720,100 1080,40 C1260,20 1380,80 1440,60 L1440,120 L0,120 Z;
+                            M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z
+                        "
+                        dur="18s"
+                        repeatCount="indefinite"
+                    />
+                </path>
                 <path
-                    d="M0,80 C240,40 480,100 720,80 C960,60 1200,100 1440,80 L1440,120 L0,120 Z"
                     fill="url(#waveGradient2)"
-                    style={{ animation: 'wavePath 12s ease-in-out infinite reverse' }}
-                />
+                >
+                    <animate
+                        attributeName="d"
+                        values="
+                            M0,80 C240,40 480,100 720,80 C960,60 1200,100 1440,80 L1440,120 L0,120 Z;
+                            M0,60 C360,100 600,60 960,100 1200,40 1440,80 L1440,120 L0,120 Z;
+                            M0,80 C240,40 480,100 720,80 C960,60 1200,100 1440,80 L1440,120 L0,120 Z
+                        "
+                        dur="12s"
+                        repeatCount="indefinite"
+                    />
+                </path>
             </svg>
 
             {/* Gradient fade to background */}
