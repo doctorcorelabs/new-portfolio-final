@@ -61,9 +61,9 @@ const AboutPage = () => {
                                 <span className="w-1.5 h-1.5 bg-accent-emerald rounded-full animate-pulse"></span>
                                 <span className="text-[10px] font-mono text-accent-cyan tracking-widest uppercase">Research Active</span>
                             </div>
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[7rem] xl:text-[8rem] font-bold tracking-tighter text-white mb-6 sm:mb-8 leading-[0.9] animate-header-blur">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-6 sm:mb-8 animate-header-blur">
                                 MEDICAL<br />
-                                <span className="text-gradient-header">RESEARCHER</span>
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600 animate-text-flicker">RESEARCHER</span>
                             </h1>
                             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 lg:gap-12 mt-8 md:mt-12 border-t border-dashed border-[#333] pt-6 md:pt-8">
                                 <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl">

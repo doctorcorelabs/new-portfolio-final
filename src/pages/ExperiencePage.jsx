@@ -144,7 +144,8 @@ const ExperiencePage = () => {
     return (
         <div className="bg-[#0a0a0a] text-gray-300 min-h-screen relative overflow-x-hidden">
             <div className="fixed inset-0 emerald-pulse-bg z-0 pointer-events-none"></div>
-            <div className="w-full relative z-10 bg-grid-pattern bg-fixed">
+            <div className="w-full relative z-10">
+                <div className="absolute inset-0 bg-grid-pattern bg-fixed pointer-events-none z-[-1]"></div>
                 <Navbar />
 
                 <main className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12">
@@ -153,9 +154,9 @@ const ExperiencePage = () => {
                             <span className="material-symbols-outlined text-accent-emerald text-[14px]">ecg_heart</span>
                             <span className="text-[10px] font-mono text-accent-emerald tracking-widest uppercase">Professional Timeline</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-4 sm:mb-6 animate-header-tracking">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-6 animate-header-blur">
                             ACADEMIC &<br />
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600">CAREER PATH</span>
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600 animate-text-flicker">CAREER PATH</span>
                         </h1>
 
                         <div className="w-full h-24 sm:h-32 md:h-48 border-y border-[#1f2937] bg-[#13161c]/50 relative overflow-hidden mb-6 sm:mb-8 ecg-container bg-[image:linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)]">

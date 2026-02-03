@@ -102,9 +102,9 @@ const ResearchPage = () => {
                             <span className="material-symbols-outlined text-emerald-400 text-[14px]">science</span>
                             <span className="text-[10px] font-mono text-emerald-400 tracking-widest uppercase">Publications & Patents</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-4 sm:mb-6 animate-header-slide">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-6 animate-header-blur">
                             SCIENTIFIC<br />
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600">PUBLICATIONS</span>
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600 animate-text-flicker">PUBLICATIONS</span>
                         </h1>
                         <p className="text-base sm:text-lg text-gray-400 max-w-lg font-light leading-relaxed border-l-2 border-emerald-500 pl-4 sm:pl-6 animate-fade-in-up delay-200">
                             Disseminating breakthroughs in medical science and biotechnology. A curated collection of peer-reviewed papers, systematic reviews, and international presentations by Daivan Febri Juan Setiya.

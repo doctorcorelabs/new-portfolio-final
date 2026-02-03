@@ -184,6 +184,23 @@ html {
   }
 }
 
+/* iPad-specific fix untuk mencegah gambar keluar border */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* Paksa hardware acceleration hanya pada gambar container untuk stabilitas */
+  img {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  /* Pastikan overflow bekerja dengan baik pada rounded containers */
+  .rounded-full.overflow-hidden {
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
+  }
+}
+
+
 /* Extra small devices */
 @media (max-width: 480px) {
 

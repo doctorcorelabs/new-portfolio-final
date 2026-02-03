@@ -21,9 +21,9 @@ const EducationPage = () => {
                             <span className="material-symbols-outlined text-accent-cyan text-[14px]">school</span>
                             <span className="text-[10px] font-mono text-accent-cyan tracking-widest uppercase">Academic Database v1.0</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] animate-header-glitch">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-6 animate-header-blur">
                             THE ACADEMIC<br />
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-400 to-gray-600">SIGNAL</span>
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600 animate-text-flicker">SIGNAL</span>
                         </h1>
                         <p className="text-base sm:text-lg text-gray-400 max-w-lg font-light leading-relaxed border-l-2 border-accent-cyan pl-4 sm:pl-6">
                             Decoding the foundational knowledge structures that power current bio-engineering and medical research. A timeline of rigorous inquiry and certification.

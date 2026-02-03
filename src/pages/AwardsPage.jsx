@@ -315,8 +315,8 @@ const AwardsPage = () => {
     return (
         <div className="bg-[#0a0a0a] text-gray-300 min-h-screen relative overflow-x-hidden font-body">
             <div className="fixed inset-0 emerald-pulse-bg z-0 pointer-events-none"></div>
-            <div className="w-full relative z-10 bg-grid-pattern bg-fixed">
-
+            <div className="w-full relative z-10">
+                <div className="absolute inset-0 bg-grid-pattern bg-fixed pointer-events-none z-[-1]"></div>
                 <Navbar />
 
                 <main className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12">
@@ -325,9 +325,9 @@ const AwardsPage = () => {
                             <span className="material-symbols-outlined text-accent-emerald text-[14px]">stars</span>
                             <span className="text-[10px] font-mono text-accent-emerald tracking-widest uppercase">Honors &amp; Grants</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.9] mb-4 sm:mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-6 animate-header-blur">
                             ACHIEVEMENT<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 opacity-90">HELIX</span>
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600 animate-text-flicker">HELIX</span>
                         </h1>
                         <p className="text-base sm:text-lg text-gray-400 max-w-lg font-light leading-relaxed border-l-2 border-accent-emerald pl-4 sm:pl-6">
                             Mapping the genetic markers of success. A comprehensive chronological sequence of grants, competitions, and academic honors.
