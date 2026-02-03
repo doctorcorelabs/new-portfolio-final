@@ -209,7 +209,7 @@ const NucleusAdmin = () => {
         }
 
         if (fileId) {
-            const iframeCode = `<iframe src="https://drive.google.com/file/d/${fileId}/preview" width="100%" height="480" allow="autoplay"></iframe>`;
+            const iframeCode = `<iframe src="https://drive.google.com/file/d/${fileId}/preview" width="100%" height="480" allow="autoplay" loading="lazy"></iframe>`;
             setFormData({ ...formData, iframe_embed: iframeCode });
             setDriveLink('');
             showMessage('success', 'Drive link converted to iframe info');

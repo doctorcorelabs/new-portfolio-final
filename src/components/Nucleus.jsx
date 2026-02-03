@@ -524,8 +524,11 @@ const Nucleus = () => {
 
                                 {/* Iframe Embed */}
                                 {selectedPost.iframe_embed && (
-                                    <div className="mb-8 w-full rounded-xl overflow-hidden border border-gray-800 bg-black/50 shadow-lg">
-                                        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(selectedPost.iframe_embed, { ADD_TAGS: ['iframe'], ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling', 'src', 'width', 'height'] }) }} />
+                                    <div className="mb-8 w-full rounded-xl overflow-hidden border border-gray-800 bg-black/50 shadow-lg relative aspect-video">
+                                        <div
+                                            className="w-full h-full [&>iframe]:w-full [&>iframe]:h-full [&>iframe]:absolute [&>iframe]:top-0 [&>iframe]:left-0"
+                                            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(selectedPost.iframe_embed, { ADD_TAGS: ['iframe'], ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling', 'src', 'width', 'height', 'loading'] }) }}
+                                        />
                                     </div>
                                 )}
 
