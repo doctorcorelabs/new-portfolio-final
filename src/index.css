@@ -182,6 +182,25 @@ html {
   .grain-overlay {
     opacity: 0.3;
   }
+
+  /* iOS Safari-specific fixes for background color */
+  section {
+    background-color: #000000 !important;
+  }
+
+  /* Force black background on body for iOS Safari */
+  body {
+    background-color: #000000 !important;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Ensure proper backdrop rendering on iOS */
+  .backdrop-blur-md,
+  .backdrop-blur-xl,
+  .backdrop-blur-3xl {
+    -webkit-backdrop-filter: blur(20px) saturate(100%);
+    backdrop-filter: blur(20px) saturate(100%);
+  }
 }
 
 /* iPad-specific fix untuk mencegah gambar keluar border */

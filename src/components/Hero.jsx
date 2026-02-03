@@ -3,7 +3,9 @@ import AuroraWave from './AuroraWave';
 
 const Hero = () => {
     return (
-        <section className="relative min-h-[90vh] flex items-center pt-24 pb-20 justify-center overflow-hidden">
+        <section className="relative min-h-[90vh] flex items-center pt-24 pb-20 justify-center overflow-hidden bg-black">
+            {/* Solid Black Base Layer - Ensures black background on all devices */}
+            <div className="absolute inset-0 bg-black z-0"></div>
             {/* Aurora Wave Background */}
             <AuroraWave />
 

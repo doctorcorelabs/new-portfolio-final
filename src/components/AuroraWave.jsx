@@ -2,9 +2,12 @@ import React from 'react';
 
 const AuroraWave = () => {
     return (
-        <div className="absolute bottom-0 left-0 right-0 h-96 overflow-hidden pointer-events-none">
+        <div className="absolute bottom-0 left-0 right-0 h-96 overflow-hidden pointer-events-none z-[1]">
+            {/* Solid Black Base Layer */}
+            <div className="absolute inset-0 bg-black z-0"></div>
+
             {/* Wave layers - Colorful Restoration */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 z-10" style={{ mixBlendMode: 'screen' }}>
                 {/* Layer 1 - Cyan/Blue */}
                 <div
                     className="absolute bottom-0 left-0 right-0 h-48 opacity-60"
