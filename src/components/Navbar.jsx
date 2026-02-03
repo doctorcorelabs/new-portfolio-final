@@ -5,7 +5,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const links = [
-        { name: 'Home', href: '#' },
+        { name: 'Home', href: '/' },
         { name: 'About', href: '/about' },
         { name: 'Education', href: '/education' },
         { name: 'Honors & Awards', href: '/awards' },
@@ -20,9 +20,9 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                 {/* Brand */}
                 <div className="flex-shrink-0">
-                    <a href="#" className="text-xl font-bold text-white tracking-tight">
+                    <Link to="/" className="text-xl font-bold text-white tracking-tight">
                         DaivanLabs<span className="text-gray-500">.</span>
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Desktop Navigation */}

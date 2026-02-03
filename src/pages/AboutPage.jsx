@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 import './AboutPage.css';
 
 const AboutPage = () => {
@@ -26,27 +28,7 @@ const AboutPage = () => {
                     BUT, user says "on about navigation bar... click to open new page".
                 */}
 
-                <nav className="sticky top-0 z-40 w-full backdrop-blur-md border-b border-[#1f2937] bg-[#0a0a0a]/80">
-                    <div className="w-full px-6 md:px-12 h-20 flex items-center justify-between">
-                        <div className="flex items-center space-x-8 text-sm font-medium tracking-wide">
-                            <span className="font-bold text-lg text-white tracking-tighter flex items-center gap-2">
-                                <span className="material-symbols-outlined text-accent-cyan text-xl">cardiology</span>
-                                DaivanLabs.
-                            </span>
-                            <div className="h-4 w-[1px] bg-gray-700 mx-4 hidden md:block"></div>
-                            {/* Updated hrefs to valid anchors or routes if needed, sticking to requested HTML for now */}
-                            <a className="text-gray-400 hover:text-accent-cyan transition-colors font-mono text-xs" href="/#research">01. RESEARCH</a>
-                            <a className="text-gray-400 hover:text-accent-cyan transition-colors font-mono text-xs" href="/#projects">02. PROJECTS</a>
-                            <a className="text-gray-400 hover:text-accent-cyan transition-colors font-mono text-xs" href="/#stream">03. DATA_LOG</a>
-                        </div>
-                        <div className="flex items-center space-x-3 border border-[#333] rounded px-3 py-1.5 bg-[#13161c]">
-                            <div className="relative flex items-center justify-center w-4 h-4">
-                                <span className="material-symbols-outlined text-[16px] text-accent-emerald heart-beat">favorite</span>
-                            </div>
-                            <span className="text-[10px] font-mono font-medium text-accent-cyan uppercase tracking-widest">VITALS: STABLE</span>
-                        </div>
-                    </div>
-                </nav>
+                <Navbar />
 
                 <main className="w-full">
                     <section className="pt-32 pb-20 px-6 md:px-12 border-b border-[#1f2937] relative overflow-hidden h-[85vh] flex flex-col justify-center">
@@ -91,7 +73,7 @@ const AboutPage = () => {
                     </section>
                     <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen bg-[#0a0a0a]">
                         <div className="lg:col-span-8 border-r border-[#1f2937]">
-                            <div className="p-6 md:p-12 border-b border-[#1f2937]" id="about">
+                            <div className="p-6 md:p-12 border-b border-[#1f2937]" id="research">
                                 <h2 className="text-[10px] font-bold text-accent-cyan uppercase tracking-[0.2em] mb-8 flex items-center gap-2 font-mono">
                                     <span className="material-symbols-outlined text-sm">biotech</span>
                                     Diagnostics &amp; Research
