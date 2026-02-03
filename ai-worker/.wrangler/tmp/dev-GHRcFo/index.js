@@ -11792,7 +11792,76 @@ var src_default = {
       return new Response("Method not allowed", { status: 405 });
     }
     try {
-      const { postId, type } = await request.json();
+      const body = await request.json();
+      if (body.message !== void 0) {
+        const { articleId, articleTitle, articleContent, message, conversationHistory = [] } = body;
+        if (!message || !articleContent) {
+          return new Response(JSON.stringify({ error: "Missing required fields" }), {
+            status: 400,
+            headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
+          });
+        }
+        console.log(`[Worker] Processing chat for article: ${articleTitle}`);
+        const cleanContent = articleContent.replace(/\u003c[^\u003e]*\u003e?/gm, "");
+        const contentPreview = cleanContent.substring(0, 3e3);
+        const systemPrompt2 = `You are an AI assistant helping users understand an article titled "${articleTitle}".
+
+Article Content:
+${contentPreview}${cleanContent.length > 3e3 ? "..." : ""}
+
+Instructions:
+- Answer questions based ONLY on the article content provided above
+- If the user asks about information not in the article, politely say you can only answer questions about this specific article
+- Be concise but informative (aim for 2-3 sentences unless more detail is requested)
+- Use a friendly, professional tone
+- Format your responses using markdown when helpful:
+  - Use **bold** for key terms and important points
+  - Use *italic* for emphasis
+  - Use bullet points for lists
+  - Use headings (##) for section organization when needed
+- Always stay on topic with the article`;
+        const messages = [
+          { role: "system", content: systemPrompt2 },
+          ...conversationHistory.slice(-6),
+          // Keep last 6 messages for context
+          { role: "user", content: message }
+        ];
+        try {
+          const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+            method: "POST",
+            headers: {
+              "Authorization": `Bearer ${env.OPENROUTER_API_KEY}`,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              "model": "openai/gpt-oss-120b",
+              "messages": messages,
+              "max_tokens": 500,
+              "temperature": 0.7
+            })
+          });
+          if (!response.ok) {
+            const errorText = await response.text();
+            console.error(`[Worker] OpenRouter chat error:`, errorText);
+            throw new Error(`OpenRouter API Error: ${response.status}`);
+          }
+          const aiData = await response.json();
+          if (aiData.error) {
+            throw new Error(`OpenRouter Error: ${aiData.error.message}`);
+          }
+          if (!aiData.choices || aiData.choices.length === 0) {
+            throw new Error("No response from AI");
+          }
+          const aiResponse = aiData.choices[0].message.content;
+          return new Response(JSON.stringify({ response: aiResponse }), {
+            headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
+          });
+        } catch (chatError) {
+          console.error(`[Worker] Chat request failed:`, chatError);
+          throw chatError;
+        }
+      }
+      const { postId, type } = body;
       if (!postId || !type) {
         return new Response("Missing postId or type", { status: 400 });
       }
@@ -11814,7 +11883,7 @@ var src_default = {
         systemPrompt = "You are a helpful assistant that summarizes articles concisely.";
         userPrompt = `Please summarize the following article in a concise paragraph:
 
-${post2.content.replace(/<[^>]*>?/gm, "")}`;
+${post2.content.replace(/\u003c[^\u003e]*\u003e?/gm, "")}`;
       } else if (type === "translate") {
         if (post2.ai_translation) {
           return new Response(JSON.stringify({ result: post2.ai_translation }), {
@@ -11824,7 +11893,7 @@ ${post2.content.replace(/<[^>]*>?/gm, "")}`;
         systemPrompt = "You are a helpful assistant that translates text to Indonesian.";
         userPrompt = `Please translate the following article content to Indonesian. Maintain the original tone and meaning:
 
-${post2.content.replace(/<[^>]*>?/gm, "")}`;
+${post2.content.replace(/\u003c[^\u003e]*\u003e?/gm, "")}`;
       } else {
         return new Response("Invalid type", { status: 400 });
       }

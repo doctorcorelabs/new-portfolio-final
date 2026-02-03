@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import DOMPurify from 'dompurify';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import ArticleChatbot from './ArticleChatbot';
 
 const WORKER_URL = 'http://localhost:8787'; // Update this after deployment
 
@@ -774,6 +775,17 @@ const Nucleus = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* Article Chatbot */}
+            <ArticleChatbot
+                article={selectedPost ? {
+                    id: selectedPost.id,
+                    title: selectedPost.title,
+                    summary: selectedPost.summary,
+                    content: selectedPost.content
+                } : null}
+                isOpen={selectedPost !== null}
+            />
 
             {/* Back to Top Button */}
             <button
