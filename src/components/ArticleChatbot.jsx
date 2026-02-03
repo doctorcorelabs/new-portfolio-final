@@ -80,28 +80,54 @@ const ArticleChatbot = ({ article, isOpen }) => {
                 payload.turnstileToken = turnstileToken;
             }
 
+            console.log('[Chatbot] Sending request to:', WORKER_URL);
+            console.log('[Chatbot] Payload:', { ...payload, articleContent: '[truncated]' });
+
             const response = await fetch(WORKER_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
 
+            console.log('[Chatbot] Response status:', response.status);
+
             if (!response.ok) {
-                const errorData = await response.json();
+                let errorData;
+                try {
+                    errorData = await response.json();
+                } catch (e) {
+                    throw new Error(`Server error (${response.status})`);
+                }
                 throw new Error(errorData.error || 'Failed to get response');
             }
 
             const data = await response.json();
+            console.log('[Chatbot] Success response received');
 
             setMessages(prev => [...prev, {
                 role: 'assistant',
                 content: data.response
             }]);
         } catch (error) {
-            console.error('Chat error:', error);
+            console.error('[Chatbot] Error details:', {
+                message: error.message,
+                name: error.name,
+                workerUrl: WORKER_URL,
+                userAgent: navigator.userAgent
+            });
+
+            let errorMessage = '❌ Sorry, I encountered an error. Please try again.';
+
+            // More specific error messages
+            if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
+                errorMessage = `❌ Connection failed. Please check your internet connection.\n\n*Debug: Using ${WORKER_URL}*`;
+            } else if (error.message) {
+                errorMessage = `❌ ${error.message}`;
+            }
+
             setMessages(prev => [...prev, {
                 role: 'assistant',
-                content: `❌ ${error.message || 'Sorry, I encountered an error. Please try again.'}`
+                content: errorMessage
             }]);
         } finally {
             setIsTyping(false);
