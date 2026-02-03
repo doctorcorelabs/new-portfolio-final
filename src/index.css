@@ -696,3 +696,21 @@ html {
   0% { opacity: 0.3; transform: scaleY(0.5); }
   100% { opacity: 0.8; transform: scaleY(1); }
 }
+
+/* Text Flicker Animation */
+@keyframes text-flicker {
+  0%, 100% { opacity: 1; }
+  33% { opacity: 0.8; }
+  35% { opacity: 0.1; }
+  37% { opacity: 0.8; }
+  39% { opacity: 0.1; }
+  42% { opacity: 1; }
+  60% { opacity: 0.6; }
+  62% { opacity: 0.2; }
+  64% { opacity: 0.6; }
+  66% { opacity: 1; }
+}
+
+.animate-text-flicker {
+  animation: text-flicker 4s infinite;
+}

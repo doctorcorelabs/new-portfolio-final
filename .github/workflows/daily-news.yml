@@ -1,0 +1,30 @@
+name: Daily Medical News Update
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day (which is 07:00 WIB)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual triggering from GitHub UI
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm ci
+        # If npm ci fails due to lockfile issues, use: npm install
+
+      - name: Run Update Script
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        run: node scripts/update-news.js

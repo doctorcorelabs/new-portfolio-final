@@ -347,9 +347,9 @@ const Nucleus = () => {
                                 <span className="material-icons text-emerald-500 text-[14px]">satellite_alt</span>
                                 <span className="text-[10px] font-mono text-emerald-400 tracking-widest uppercase">Live Feed v3.0</span>
                             </div>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white leading-[1.1] mb-6">
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white leading-[1.1] mb-6 animate-header-blur">
                                 BIO-DIGITAL<br />
-                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600">NEWS STREAM</span>
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600 animate-text-flicker">NEWS STREAM</span>
                             </h1>
                             <p className="text-lg text-gray-400 max-w-lg font-light leading-relaxed mb-8 border-l-2 border-gray-700 pl-4">
                                 Tracking the pulse of innovation. A chronological log of updates, research notes, and announcements.

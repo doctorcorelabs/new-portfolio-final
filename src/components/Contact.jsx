@@ -1,4 +1,5 @@
 import React from 'react';
+import NewsTicker from './NewsTicker';
 
 const Contact = () => {
     return (
@@ -27,6 +28,11 @@ const Contact = () => {
                     <a href="https://orcid.org/0009-0000-2528-8459" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">ORCID</a>
                     <a href="https://www.instagram.com/ddaiivan/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
                 </div>
+            </div>
+
+            {/* Medical News Ticker - Full Width */}
+            <div className="mt-20 relative z-10">
+                <NewsTicker />
             </div>
         </div>
     );
