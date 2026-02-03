@@ -2,6 +2,10 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { supabase } from '../supabaseClient';
 import { motion, AnimatePresence } from 'framer-motion';
 import DOMPurify from 'dompurify';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
+const WORKER_URL = 'http://localhost:8787'; // Update this after deployment
 
 const CATEGORIES = [
     { value: 'all', label: 'ALL SIGNALS', color: 'white' },
@@ -243,6 +247,48 @@ const Nucleus = () => {
     const [selectedPost, setSelectedPost] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
     const [activeFilters, setActiveFilters] = useState(['Announcement', 'Research', 'Project', 'Personal', 'Changelog']);
+    const [isGenerating, setIsGenerating] = useState({ summary: false, translate: false });
+    const [expandedSections, setExpandedSections] = useState({ summary: false, translate: false });
+
+    // Function to call Cloudflare Worker
+    const generateAIContent = async (type) => {
+        if (!selectedPost) return;
+
+        setIsGenerating(prev => ({ ...prev, [type]: true }));
+        try {
+            const response = await fetch(WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ postId: selectedPost.id, type })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.error || `Worker Error: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            // Update local state
+            setSelectedPost(prev => ({
+                ...prev,
+                [type === 'summary' ? 'ai_summary' : 'ai_translation']: data.result
+            }));
+
+            // Update posts list to reflect change without refetching
+            setPosts(prev => prev.map(p =>
+                p.id === selectedPost.id
+                    ? { ...p, [type === 'summary' ? 'ai_summary' : 'ai_translation']: data.result }
+                    : p
+            ));
+
+        } catch (error) {
+            console.error(`Error generating ${type}:`, error);
+            alert(`Failed to generate ${type}: ${error.message}`);
+        } finally {
+            setIsGenerating(prev => ({ ...prev, [type]: false }));
+        }
+    };
 
     useEffect(() => {
         fetchPosts();
@@ -517,6 +563,163 @@ const Nucleus = () => {
                                         <p className="text-gray-400 leading-relaxed">
                                             {selectedPost.summary}
                                         </p>
+                                    </div>
+
+
+                                    {/* AI Summary Section */}
+                                    <div className="mt-4 bg-[#13161c] rounded-lg border border-gray-800 overflow-hidden">
+                                        <button
+                                            onClick={() => setExpandedSections(prev => ({ ...prev, summary: !prev.summary }))}
+                                            className="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors"
+                                        >
+                                            <div className="flex items-center gap-2">
+                                                <span className="material-icons text-[14px] text-blue-400">auto_awesome</span>
+                                                <p className="text-xs text-blue-400 font-mono uppercase tracking-wider">
+                                                    AI Analysis
+                                                </p>
+                                                {selectedPost.ai_summary && (
+                                                    <span className="text-[9px] text-gray-600 font-mono ml-2">
+                                                        ({selectedPost.ai_summary.split(' ').length} words)
+                                                    </span>
+                                                )}
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                {!selectedPost.ai_summary && !expandedSections.summary && (
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            generateAIContent('summary');
+                                                        }}
+                                                        disabled={isGenerating.summary}
+                                                        className="text-[10px] bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 px-2 py-1 rounded border border-blue-500/30 flex items-center gap-1 transition-colors disabled:opacity-50"
+                                                    >
+                                                        {isGenerating.summary ? 'GENERATING...' : 'GENERATE'}
+                                                    </button>
+                                                )}
+                                                <span className={`material-icons text-gray-400 transition-transform ${expandedSections.summary ? 'rotate-180' : ''}`}>
+                                                    expand_more
+                                                </span>
+                                            </div>
+                                        </button>
+                                        <AnimatePresence>
+                                            {expandedSections.summary && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: 'auto', opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="px-4 pb-4 border-t border-gray-800/50">
+                                                        {selectedPost.ai_summary ? (
+                                                            <div className="mt-3 text-sm text-gray-400 leading-relaxed text-justify prose prose-invert prose-sm max-w-none
+                                                                prose-p:text-gray-400 prose-p:my-2
+                                                                prose-strong:text-white prose-strong:font-bold
+                                                                prose-em:text-gray-300 prose-em:italic
+                                                                prose-ul:text-gray-400 prose-ol:text-gray-400
+                                                                prose-li:marker:text-blue-400
+                                                                prose-headings:text-white">
+                                                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                                                    {selectedPost.ai_summary}
+                                                                </ReactMarkdown>
+                                                            </div>
+                                                        ) : (
+                                                            <div className="mt-3 flex flex-col items-center gap-3 py-6">
+                                                                <p className="text-xs text-gray-600 italic">
+                                                                    No AI summary generated for this log yet.
+                                                                </p>
+                                                                <button
+                                                                    onClick={() => generateAIContent('summary')}
+                                                                    disabled={isGenerating.summary}
+                                                                    className="text-xs bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 px-4 py-2 rounded border border-blue-500/30 flex items-center gap-2 transition-colors disabled:opacity-50"
+                                                                >
+                                                                    <span className="material-icons text-[14px]">auto_awesome</span>
+                                                                    {isGenerating.summary ? 'GENERATING SUMMARY...' : 'GENERATE SUMMARY'}
+                                                                </button>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+
+                                    {/* AI Translation Section */}
+                                    <div className="mt-4 bg-[#13161c] rounded-lg border border-gray-800 overflow-hidden">
+                                        <button
+                                            onClick={() => setExpandedSections(prev => ({ ...prev, translate: !prev.translate }))}
+                                            className="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors"
+                                        >
+                                            <div className="flex items-center gap-2">
+                                                <span className="material-icons text-[14px] text-emerald-400">translate</span>
+                                                <p className="text-xs text-emerald-400 font-mono uppercase tracking-wider">
+                                                    Indonesian Translation
+                                                </p>
+                                                {selectedPost.ai_translation && (
+                                                    <span className="text-[9px] text-gray-600 font-mono ml-2">
+                                                        ({selectedPost.ai_translation.split(' ').length} words)
+                                                    </span>
+                                                )}
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                {!selectedPost.ai_translation && !expandedSections.translate && (
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            generateAIContent('translate');
+                                                        }}
+                                                        disabled={isGenerating.translate}
+                                                        className="text-[10px] bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 px-2 py-1 rounded border border-emerald-500/30 flex items-center gap-1 transition-colors disabled:opacity-50"
+                                                    >
+                                                        {isGenerating.translate ? 'TRANSLATING...' : 'TRANSLATE'}
+                                                    </button>
+                                                )}
+                                                <span className={`material-icons text-gray-400 transition-transform ${expandedSections.translate ? 'rotate-180' : ''}`}>
+                                                    expand_more
+                                                </span>
+                                            </div>
+                                        </button>
+                                        <AnimatePresence>
+                                            {expandedSections.translate && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: 'auto', opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="px-4 pb-4 border-t border-gray-800/50">
+                                                        {selectedPost.ai_translation ? (
+                                                            <div className="mt-3 text-sm text-gray-400 leading-relaxed text-justify prose prose-invert prose-sm max-w-none
+                                                                prose-p:text-gray-400 prose-p:my-2
+                                                                prose-strong:text-white prose-strong:font-bold
+                                                                prose-em:text-gray-300 prose-em:italic
+                                                                prose-ul:text-gray-400 prose-ol:text-gray-400
+                                                                prose-li:marker:text-emerald-400
+                                                                prose-headings:text-white">
+                                                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                                                    {selectedPost.ai_translation}
+                                                                </ReactMarkdown>
+                                                            </div>
+                                                        ) : (
+                                                            <div className="mt-3 flex flex-col items-center gap-3 py-6">
+                                                                <p className="text-xs text-gray-600 italic">
+                                                                    Terjemahan Bahasa Indonesia belum tersedia.
+                                                                </p>
+                                                                <button
+                                                                    onClick={() => generateAIContent('translate')}
+                                                                    disabled={isGenerating.translate}
+                                                                    className="text-xs bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 px-4 py-2 rounded border border-emerald-500/30 flex items-center gap-2 transition-colors disabled:opacity-50"
+                                                                >
+                                                                    <span className="material-icons text-[14px]">translate</span>
+                                                                    {isGenerating.translate ? 'TRANSLATING...' : 'TRANSLATE TO INDONESIAN'}
+                                                                </button>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
                                     </div>
                                 </div>
 

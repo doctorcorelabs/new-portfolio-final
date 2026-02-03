@@ -714,3 +714,93 @@ html {
 .animate-text-flicker {
   animation: text-flicker 4s infinite;
 }
+
+/* ================================
+   NUCLEUS AI SECTIONS
+   ================================ */
+
+/* Fade-in animation for AI content */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in;
+}
+
+/* Markdown content in AI sections */
+.prose-nucleus-ai {
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.prose-nucleus-ai p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-nucleus-ai strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.prose-nucleus-ai em {
+  font-style: italic;
+  color: #d1d5db;
+}
+
+.prose-nucleus-ai ul,
+.prose-nucleus-ai ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+}
+
+.prose-nucleus-ai li {
+  margin-bottom: 0.25rem;
+}
+
+/* Responsive design for AI sections */
+@media (max-width: 768px) {
+  .prose-nucleus-ai {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+  
+  .prose-nucleus-ai p {
+    margin-top: 0.375rem;
+    margin-bottom: 0.375rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* iPad styles */
+  .prose-nucleus-ai {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Desktop styles */
+  .prose-nucleus-ai {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
+/* Ensure collapsible sections work smoothly on all devices */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Text justification for better readability */
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
