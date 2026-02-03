@@ -191,12 +191,29 @@ html {
   img {
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   /* Pastikan overflow bekerja dengan baik pada rounded containers */
   .rounded-full.overflow-hidden {
     -webkit-mask-image: -webkit-radial-gradient(white, black);
     mask-image: radial-gradient(white, black);
+    contain: paint;
+  }
+
+  /* Fix untuk backdrop-blur yang bisa menyebabkan rendering issue */
+  .backdrop-blur-3xl,
+  .backdrop-blur-xl,
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    will-change: auto;
+  }
+
+  /* Pastikan semua elemen dengan absolute positioning tidak keluar */
+  .absolute {
+    will-change: auto;
   }
 }
 

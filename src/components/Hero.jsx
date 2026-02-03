@@ -49,8 +49,13 @@ const Hero = () => {
 
                     {/* Right Column: Photo with Animated Glass Frame */}
                     <div className="order-1 lg:order-2 flex justify-center items-center mb-8 lg:mb-0">
-                        <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[24rem] lg:h-[24rem] xl:w-[28rem] xl:h-[28rem]">
-
+                        <div
+                            className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[24rem] lg:h-[24rem] xl:w-[28rem] xl:h-[28rem]"
+                            style={{
+                                transformStyle: 'preserve-3d',
+                                WebkitTransformStyle: 'preserve-3d'
+                            }}
+                        >
                             {/* Outer Glow / Star Dissolve Effect */}
                             <div className="absolute inset-0 bg-white/5 blur-3xl rounded-full scale-110 animate-pulse"></div>
 
@@ -64,12 +69,27 @@ const Hero = () => {
                             <div className="absolute -inset-10 rounded-full border-2 border-dashed border-white/5 animate-spin-slow opacity-30 pointer-events-none" style={{ animationDuration: '30s' }}></div>
 
                             {/* Main Image Container - Thick Glass Bezel */}
-                            <div className="w-full h-full rounded-full overflow-hidden shadow-2xl relative z-20 bg-black border-[6px] border-white/20 ring-1 ring-white/30 backdrop-blur-3xl">
+                            <div
+                                className="w-full h-full rounded-full overflow-hidden shadow-2xl relative z-20 bg-black border-[6px] border-white/20 ring-1 ring-white/30 backdrop-blur-3xl"
+                                style={{
+                                    contain: 'paint',
+                                    WebkitMaskImage: '-webkit-radial-gradient(circle, white 100%, black 100%)',
+                                    maskImage: 'radial-gradient(circle, white 100%, black 100%)',
+                                    isolation: 'isolate'
+                                }}
+                            >
                                 {/* Daivan's Photo */}
                                 <img
                                     src="/profile.png"
                                     alt="Daivan Febri Juan Setiya"
                                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-90 hover:opacity-100"
+                                    style={{
+                                        transform: 'translateZ(0)',
+                                        WebkitTransform: 'translateZ(0)',
+                                        maxWidth: '100%',
+                                        maxHeight: '100%',
+                                        objectFit: 'cover'
+                                    }}
                                 />
 
                                 {/* Glossy Overlay/Sheen */}
