@@ -1002,3 +1002,51 @@ html {
   }
 }
 
+/* ================================
+   TURNSTILE VERIFICATION STYLES
+   ================================ */
+
+/* Turnstile Container */
+.turnstile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 300px;
+}
+
+.turnstile-widget {
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* Responsive Turnstile scaling */
+@media (max-width: 768px) {
+  .turnstile-container {
+    padding: 1.5rem 1rem;
+    min-height: 250px;
+  }
+  
+  .turnstile-widget {
+    transform: scale(0.85);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .turnstile-container {
+    padding: 1.75rem 1.25rem;
+  }
+  
+  .turnstile-widget {
+    transform: scale(0.92);
+  }
+}
+
+/* Turnstile loading state */
+.turnstile-widget iframe {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+

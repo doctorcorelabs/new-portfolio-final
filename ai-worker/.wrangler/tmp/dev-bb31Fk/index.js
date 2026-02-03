@@ -11794,12 +11794,56 @@ var src_default = {
     try {
       const body = await request.json();
       if (body.message !== void 0) {
-        const { articleId, articleTitle, articleContent, message, conversationHistory = [] } = body;
+        const { articleId, articleTitle, articleContent, message, conversationHistory = [], turnstileToken } = body;
         if (!message || !articleContent) {
           return new Response(JSON.stringify({ error: "Missing required fields" }), {
             status: 400,
             headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
           });
+        }
+        const isFirstMessage = conversationHistory.length === 0;
+        if (isFirstMessage) {
+          if (!turnstileToken) {
+            return new Response(JSON.stringify({
+              error: "Verification required. Please complete the security check."
+            }), {
+              status: 403,
+              headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
+            });
+          }
+          console.log(`[Worker] Verifying Turnstile token for first message`);
+          try {
+            const verifyResponse = await fetch(
+              "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  secret: env.TURNSTILE_SECRET_KEY,
+                  response: turnstileToken
+                })
+              }
+            );
+            const verifyData = await verifyResponse.json();
+            if (!verifyData.success) {
+              console.error(`[Worker] Turnstile verification failed:`, verifyData);
+              return new Response(JSON.stringify({
+                error: "Verification failed. Please refresh and try again."
+              }), {
+                status: 403,
+                headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
+              });
+            }
+            console.log(`[Worker] Turnstile verification successful`);
+          } catch (verifyError) {
+            console.error(`[Worker] Turnstile verification error:`, verifyError);
+            return new Response(JSON.stringify({
+              error: "Verification error. Please try again."
+            }), {
+              status: 500,
+              headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
+            });
+          }
         }
         console.log(`[Worker] Processing chat for article: ${articleTitle}`);
         const cleanContent = articleContent.replace(/\u003c[^\u003e]*\u003e?/gm, "");
