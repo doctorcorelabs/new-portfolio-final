@@ -489,3 +489,210 @@ html {
 .animate-header-stamp {
   animation: stamp-impact 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
+
+/* ================================
+   TIPTAP EDITOR STYLES
+   ================================ */
+
+.ProseMirror {
+  min-height: 250px;
+  outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #4b5563;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.ProseMirror h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #f3f4f6;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #e5e7eb;
+}
+
+.ProseMirror p {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+}
+
+.ProseMirror li {
+  margin-bottom: 0.25rem;
+}
+
+.ProseMirror blockquote {
+  border-left: 3px solid #22d3ee;
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-bottom: 0.75rem;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* ================================
+   NUCLEUS BIO-DIGITAL PULSE THEME
+   ================================ */
+
+.emerald-pulse-bg {
+  background: radial-gradient(circle at 50% 0%, #064e3b 0%, #050505 50%);
+}
+
+.bio-grid-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%2310b981' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Wireframe Globe */
+.globe-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.wireframe-globe {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  position: relative;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.05) 0%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0, transparent 19px, rgba(16, 185, 129, 0.1) 20px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 19px, rgba(16, 185, 129, 0.1) 20px);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.1) inset;
+  animation: rotateGlobe 20s linear infinite;
+}
+
+.globe-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulse-globe-dot 2s infinite;
+}
+
+@keyframes rotateGlobe {
+  0% { transform: rotateY(0deg) rotateX(10deg); }
+  100% { transform: rotateY(360deg) rotateX(10deg); }
+}
+
+@keyframes pulse-globe-dot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Timeline */
+.timeline-line-gradient {
+  background: linear-gradient(to bottom, transparent, #1f2937 10%, #10b981 50%, #1f2937 90%, transparent);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.ecg-spike {
+  width: 30px;
+  height: 40px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' fill='none' stroke='%2310b981' stroke-width='2'%3E%3Cpath d='M0 25h10l5-15 5 30 5-15h25' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") no-repeat center;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 4px #10b981);
+}
+
+/* News Card */
+.news-card-bio {
+  background: rgba(19, 22, 28, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.news-card-bio:hover {
+  border-color: rgba(16, 185, 129, 0.5);
+  background: rgba(19, 22, 28, 0.8);
+  transform: translateX(4px);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+}
+
+/* Impact Bar */
+.impact-bar-bg {
+  background: #1f2937;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.impact-bar-fill {
+  height: 100%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  position: relative;
+  transition: width 0.6s ease-out;
+}
+
+.impact-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+  background: #fff;
+  opacity: 0.5;
+}
+
+/* Signal Strength Bars */
+.signal-bar {
+  transition: height 0.3s ease;
+}
+
+/* Engagement Chart */
+.engagement-bar {
+  transition: all 0.3s ease;
+}
+
+.engagement-bar:hover {
+  background-color: rgba(16, 185, 129, 0.5) !important;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0%); }
+}
+
+.animate-scanline {
+  animation: scanline 4s linear infinite;
+}
+
+@keyframes pulse-bar {
+  0% { opacity: 0.3; transform: scaleY(0.5); }
+  100% { opacity: 0.8; transform: scaleY(1); }
+}

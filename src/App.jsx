@@ -16,6 +16,8 @@ import AwardsPage from './pages/AwardsPage';
 import ResearchPage from './pages/ResearchPage';
 import ExperiencePage from './pages/ExperiencePage';
 import CertificationsPage from './pages/CertificationsPage';
+import NucleusPage from './pages/NucleusPage';
+import NucleusAdminPage from './pages/NucleusAdminPage';
 
 function Home() {
   return (
@@ -58,6 +60,8 @@ function App() {
         <Route path="/research" element={<ResearchPage />} />
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/certifications" element={<CertificationsPage />} />
+        <Route path="/nucleus" element={<NucleusPage />} />
+        <Route path="/nucleus/admin" element={<NucleusAdminPage />} />
       </Routes>
     </>
   );

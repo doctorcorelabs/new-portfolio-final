@@ -13,7 +13,7 @@ const Navbar = () => {
         { name: 'Research', href: '/research' },
         { name: 'Experience', href: '/experience' },
         { name: 'Certifications', href: '/certifications' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'Nucleus', href: '/nucleus' },
     ];
 
     return (
@@ -29,11 +29,9 @@ const Navbar = () => {
                 {/* Desktop Navigation */}
                 <div className="hidden lg:flex items-center space-x-6 text-sm font-medium">
                     {links.map((link) => {
-                        let href = link.href;
-                        if (link.name === 'Contact' && location.pathname !== '/') {
-                            href = '/#contact';
-                        }
 
+
+                        const href = link.href;
                         return href.startsWith('/') ? (
                             <Link
                                 key={link.name}
@@ -70,11 +68,9 @@ const Navbar = () => {
                 <div className="lg:hidden absolute top-20 left-0 w-full bg-background-dark/95 backdrop-blur-xl border-b border-white/10">
                     <div className="px-6 py-4 space-y-3 flex flex-col">
                         {links.map((link) => {
-                            let href = link.href;
-                            if (link.name === 'Contact' && location.pathname !== '/') {
-                                href = '/#contact';
-                            }
 
+
+                            const href = link.href;
                             return href.startsWith('/') ? (
                                 <Link
                                     key={link.name}
