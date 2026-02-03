@@ -60,6 +60,7 @@ const AuroraWave = () => {
                 </defs>
                 <path
                     fill="url(#waveGradient1)"
+                    d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z"
                 >
                     <animate
                         attributeName="d"
@@ -70,20 +71,27 @@ const AuroraWave = () => {
                         "
                         dur="18s"
                         repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+                        keyTimes="0;0.5;1"
                     />
                 </path>
                 <path
                     fill="url(#waveGradient2)"
+                    d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z"
                 >
                     <animate
                         attributeName="d"
                         values="
-                            M0,80 C240,40 480,100 720,80 C960,60 1200,100 1440,80 L1440,120 L0,120 Z;
-                            M0,60 C360,100 600,60 960,100 1200,40 1440,80 L1440,120 L0,120 Z;
-                            M0,80 C240,40 480,100 720,80 C960,60 1200,100 1440,80 L1440,120 L0,120 Z
+                            M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z;
+                            M0,80 C360,20 720,100 1080,40 C1260,20 1380,80 1440,60 L1440,120 L0,120 Z;
+                            M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z
                         "
                         dur="12s"
                         repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+                        keyTimes="0;0.5;1"
                     />
                 </path>
             </svg>
