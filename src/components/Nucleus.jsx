@@ -248,6 +248,18 @@ const Nucleus = () => {
         fetchPosts();
     }, []);
 
+    // Check for deep link on load
+    useEffect(() => {
+        if (posts.length > 0 && window.location.hash) {
+            const postId = window.location.hash.substring(1);
+            const post = posts.find(p => p.id === postId);
+            if (post) {
+                setSelectedPost(post);
+                incrementViews(post.id);
+            }
+        }
+    }, [posts]);
+
     const fetchPosts = async () => {
         try {
             setLoading(true);
@@ -519,7 +531,7 @@ const Nucleus = () => {
 
                                 {/* Rich Text Content */}
                                 <div
-                                    className="prose prose-invert prose-lg max-w-none
+                                    className="prose prose-invert prose-lg max-w-none text-justify
                                                prose-headings:text-white prose-headings:font-semibold
                                                prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg
                                                prose-p:text-gray-300 prose-p:leading-relaxed
