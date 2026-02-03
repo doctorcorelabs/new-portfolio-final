@@ -32,12 +32,20 @@ const AboutPage = () => {
                 <Navbar />
 
                 <main className="w-full">
-                    <section className="pt-32 pb-20 px-6 md:px-12 border-b border-[#1f2937] relative overflow-hidden h-[85vh] flex flex-col justify-center">
-                        <div className="ecg-container">
-                            <div className="ecg-trail"></div>
-                            <div className="ecg-line">
-                                <div className="ecg-point"></div>
-                            </div>
+                    <section className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 md:px-12 border-b border-[#1f2937] relative overflow-hidden min-h-[75vh] md:min-h-[85vh] flex flex-col justify-center">
+                        {/* ECG Animation - SVG Based */}
+                        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-transparent to-[#0a0a0a] z-10"></div>
+                            {/* Desktop ECG - more detailed pattern */}
+                            <svg className="w-full h-full absolute inset-0 hidden md:block" preserveAspectRatio="none" viewBox="0 0 1000 100">
+                                <path className="ecg-line-bg" d="M0,50 L100,50 L110,40 L120,60 L130,50 L200,50 L210,20 L220,80 L230,50 L300,50 L310,40 L320,60 L330,50 L400,50 L410,10 L425,90 L440,50 L500,50 L510,40 L520,60 L530,50 L600,50 L610,30 L620,70 L630,50 L700,50 L710,40 L720,60 L730,50 L800,50 L810,10 L825,90 L840,50 L900,50 L910,40 L920,60 L930,50 L1000,50"></path>
+                                <path className="ecg-line-main" d="M0,50 L100,50 L110,40 L120,60 L130,50 L200,50 L210,20 L220,80 L230,50 L300,50 L310,40 L320,60 L330,50 L400,50 L410,10 L425,90 L440,50 L500,50 L510,40 L520,60 L530,50 L600,50 L610,30 L620,70 L630,50 L700,50 L710,40 L720,60 L730,50 L800,50 L810,10 L825,90 L840,50 L900,50 L910,40 L920,60 L930,50 L1000,50"></path>
+                            </svg>
+                            {/* Mobile ECG - simplified pattern with fewer peaks */}
+                            <svg className="w-full h-full absolute inset-0 md:hidden" preserveAspectRatio="xMidYMid slice" viewBox="0 0 400 100">
+                                <path className="ecg-line-bg" d="M0,50 L80,50 L90,20 L100,80 L110,50 L200,50 L210,15 L225,85 L240,50 L320,50 L330,30 L340,70 L350,50 L400,50"></path>
+                                <path className="ecg-line-main" d="M0,50 L80,50 L90,20 L100,80 L110,50 L200,50 L210,15 L225,85 L240,50 L320,50 L330,30 L340,70 L350,50 L400,50"></path>
+                            </svg>
                         </div>
                         <div className="absolute top-10 right-12 hidden md:flex flex-col items-end opacity-50 z-20">
                             <span className="font-mono text-[10px] text-accent-cyan">GPA: 3.91 | SEM: 07</span>
@@ -48,20 +56,20 @@ const AboutPage = () => {
                                 <div className="w-1 h-1 bg-accent-emerald opacity-40"></div>
                             </div>
                         </div>
-                        <div className="max-w-screen-2xl mx-auto relative z-20 w-full">
+                        <div className="max-w-screen-2xl mx-auto relative z-30 w-full">
                             <div className="inline-flex items-center gap-2 mb-6 border border-accent-cyan/30 px-3 py-1 rounded bg-accent-cyan/10 backdrop-blur-sm">
                                 <span className="w-1.5 h-1.5 bg-accent-emerald rounded-full animate-pulse"></span>
                                 <span className="text-[10px] font-mono text-accent-cyan tracking-widest uppercase">Research Active</span>
                             </div>
-                            <h1 className="text-6xl md:text-[7rem] lg:text-[8rem] font-bold tracking-tighter text-white mb-8 leading-[0.9]">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[7rem] xl:text-[8rem] font-bold tracking-tighter text-white mb-6 sm:mb-8 leading-[0.9]">
                                 MEDICAL<br />
                                 <span className="text-gradient-header">RESEARCHER</span>
                             </h1>
-                            <div className="flex flex-col md:flex-row justify-between items-end gap-8 mt-12 border-t border-dashed border-[#333] pt-8">
-                                <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl">
+                            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 lg:gap-12 mt-8 md:mt-12 border-t border-dashed border-[#333] pt-6 md:pt-8">
+                                <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl">
                                     "A fourth year undergraduate student majoring in Medicine. Deeply passionate about acquiring new knowledge and aiming to <span className="text-accent-cyan font-normal">enhance health standards</span> in Indonesia."
                                 </p>
-                                <div className="text-right hidden md:block border-l border-[#333] pl-6 bg-[#0a0a0a]/50 backdrop-blur-sm p-4 rounded-r border-y border-r">
+                                <div className="text-right hidden lg:block border-l border-[#333] pl-6 bg-[#0a0a0a]/50 backdrop-blur-sm p-4 rounded-r border-y border-r flex-shrink-0 min-w-[280px]">
                                     <p className="text-[10px] font-mono text-accent-cyan mb-1 uppercase tracking-wider">Current Focus</p>
                                     <p className="text-sm text-gray-200">Systematic Reviews &amp; Meta-Analysis</p>
                                     <p className="text-[10px] font-mono text-accent-cyan mt-4 mb-1 uppercase tracking-wider">Awards Status</p>
@@ -79,7 +87,7 @@ const AboutPage = () => {
                                     <span className="material-symbols-outlined text-sm">biotech</span>
                                     Diagnostics &amp; Research
                                 </h2>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
                                     <div className="md:col-span-2 bg-[#13161c] p-8 tech-border relative overflow-hidden group">
                                         <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
                                             <span className="material-symbols-outlined text-8xl text-accent-cyan">vital_signs</span>
@@ -131,7 +139,7 @@ const AboutPage = () => {
                                             </h3>
                                             <span className="text-[10px] text-gray-500 font-mono mt-2 md:mt-0 bg-[#0a0a0a] px-2 py-1 border border-[#333] text-accent-cyan">ACTIVE</span>
                                         </div>
-                                        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
+                                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
                                             <div className="flex flex-col items-center p-3 bg-[#0a0a0a] rounded border border-[#333] hover:border-accent-cyan transition-colors group">
                                                 <span className="material-symbols-outlined text-gray-500 group-hover:text-accent-cyan mb-2">library_books</span>
                                                 <span className="text-[10px] font-mono text-gray-300 text-center">Systematic Review</span>
@@ -258,9 +266,9 @@ const AboutPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="lg:col-span-4 bg-[#0c0c0c] relative" id="stream">
+                        <div className="lg:col-span-4 bg-[#0c0c0c] relative block" id="stream">
                             <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a] pointer-events-none"></div>
-                            <div className="sticky top-20 p-8 md:p-12 h-screen overflow-y-auto z-10 custom-scrollbar">
+                            <div className="lg:sticky lg:top-20 p-6 sm:p-8 md:p-12 lg:h-screen lg:overflow-y-auto z-10 custom-scrollbar">
                                 <h2 className="text-[10px] font-bold text-accent-cyan uppercase tracking-[0.2em] mb-12 flex items-center gap-2 font-mono">
                                     <span className="w-1.5 h-1.5 bg-accent-emerald rounded-full animate-pulse"></span> Achievements Log
                                 </h2>

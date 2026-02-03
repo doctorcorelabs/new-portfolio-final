@@ -158,3 +158,49 @@ html {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
+
+/* ================================
+   MOBILE RESPONSIVE UTILITIES
+   ================================ */
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+
+  /* Reduce animations on mobile for performance */
+  .animate-liquid,
+  .animate-star-shimmer,
+  .animate-dissolve {
+    animation-duration: 12s;
+  }
+
+  /* Ensure smooth scrolling on mobile */
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Reduce grain overlay opacity on mobile */
+  .grain-overlay {
+    opacity: 0.3;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+
+  /* Smoother experience on small screens */
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Mobile Stats Section - visible on mobile only */
+.mobile-stats-section {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .mobile-stats-section {
+    display: block;
+  }
+}

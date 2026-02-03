@@ -153,12 +153,12 @@ const ExperiencePage = () => {
                             <span className="material-symbols-outlined text-accent-emerald text-[14px]">ecg_heart</span>
                             <span className="text-[10px] font-mono text-accent-emerald tracking-widest uppercase">Professional Timeline</span>
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-4 sm:mb-6">
                             ACADEMIC &<br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600">CAREER PATH</span>
                         </h1>
 
-                        <div className="w-full h-32 md:h-48 border-y border-[#1f2937] bg-[#13161c]/50 relative overflow-hidden mb-8 ecg-container bg-[image:linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)]">
+                        <div className="w-full h-24 sm:h-32 md:h-48 border-y border-[#1f2937] bg-[#13161c]/50 relative overflow-hidden mb-6 sm:mb-8 ecg-container bg-[image:linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)]">
                             <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-transparent to-[#0a0a0a] z-10"></div>
                             <svg className="w-full h-full absolute inset-0 z-0" preserveAspectRatio="none" viewBox="0 0 1000 100">
                                 <path className="ecg-line-bg" d="M0,50 L100,50 L110,40 L120,60 L130,50 L200,50 L210,20 L220,80 L230,50 L300,50 L310,40 L320,60 L330,50 L400,50 L410,10 L425,90 L440,50 L500,50 L510,40 L520,60 L530,50 L600,50 L610,30 L620,70 L630,50 L700,50 L710,40 L720,60 L730,50 L800,50 L810,10 L825,90 L840,50 L900,50 L910,40 L920,60 L930,50 L1000,50"></path>
@@ -170,12 +170,28 @@ const ExperiencePage = () => {
                             </div>
                         </div>
 
-                        <p className="text-lg text-gray-400 max-w-2xl font-light leading-relaxed border-l-2 border-accent-emerald pl-6">
+                        <p className="text-base sm:text-lg text-gray-400 max-w-2xl font-light leading-relaxed border-l-2 border-accent-emerald pl-4 sm:pl-6">
                             A chronological diagnostic of my contributions to healthcare, research, and education. From founding labs to national advocacy, tracking the pulse of innovation across my academic and professional journey.
                         </p>
                     </section>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 min-h-screen">
+                    {/* Mobile Stats - Career Vitals */}
+                    <div className="lg:hidden mb-8 grid grid-cols-3 gap-3">
+                        <div className="bg-[#13161c]/80 backdrop-blur-sm border border-[#1f2937] rounded-lg p-4 text-center">
+                            <div className="text-xl font-bold text-white font-mono">2021 - NOW</div>
+                            <div className="text-[9px] text-gray-400 font-mono uppercase">Experience</div>
+                        </div>
+                        <div className="bg-[#13161c]/80 backdrop-blur-sm border border-[#1f2937] rounded-lg p-4 text-center">
+                            <div className="text-xl font-bold text-white font-mono">08</div>
+                            <div className="text-[9px] text-gray-400 font-mono uppercase">Key Roles</div>
+                        </div>
+                        <div className="bg-[#13161c]/80 backdrop-blur-sm border border-[#1f2937] rounded-lg p-4 text-center">
+                            <div className="text-xl font-bold text-accent-emerald font-mono">01</div>
+                            <div className="text-[9px] text-gray-400 font-mono uppercase">Founding</div>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 min-h-screen">
                         {/* Sidebar Stats */}
                         <div className="lg:col-span-3 hidden lg:block relative">
                             <div className="sticky top-32 w-full space-y-6">
@@ -227,12 +243,12 @@ const ExperiencePage = () => {
 
                             <div className="space-y-12 md:pl-12 relative z-10">
                                 {timelineData.map((item, index) => (
-                                    <div key={index} className="card-emerald-border bg-[#13161c] rounded-sm group p-6 md:p-8 relative">
+                                    <div key={index} className="card-emerald-border bg-[#13161c] rounded-sm group p-4 sm:p-6 md:p-8 relative">
                                         <div className="hidden md:block role-node absolute -left-[54px] bg-black"></div>
-                                        <div className="flex flex-col md:flex-row justify-between items-start mb-6 border-b border-[#1f2937] pb-4">
+                                        <div className="flex flex-col sm:flex-row justify-between items-start mb-4 sm:mb-6 border-b border-[#1f2937] pb-3 sm:pb-4">
                                             <div>
-                                                <div className="flex items-center gap-3 mb-1">
-                                                    <h2 className="text-2xl font-bold text-white group-hover:text-accent-emerald transition-colors">
+                                                <div className="flex items-center gap-2 sm:gap-3 mb-1">
+                                                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white group-hover:text-accent-emerald transition-colors">
                                                         {item.role}
                                                     </h2>
                                                 </div>
@@ -250,7 +266,7 @@ const ExperiencePage = () => {
                                             </div>
                                         </div>
 
-                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                                             <div className="md:col-span-2">
                                                 <div className="mb-6">
                                                     <h3 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-2">
@@ -273,7 +289,7 @@ const ExperiencePage = () => {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div className="md:col-span-1 pr-6">
+                                            <div className="md:col-span-1 mt-4 md:mt-0 md:pr-6">
                                                 <h3 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-3 text-center md:text-left">Focus Area</h3>
                                                 <div className="bento-grid">
                                                     {item.techStack.map((tech, i) => (

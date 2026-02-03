@@ -325,11 +325,11 @@ const AwardsPage = () => {
                             <span className="material-symbols-outlined text-accent-emerald text-[14px]">stars</span>
                             <span className="text-[10px] font-mono text-accent-emerald tracking-widest uppercase">Honors &amp; Grants</span>
                         </div>
-                        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-white leading-[0.9] mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.9] mb-4 sm:mb-6">
                             ACHIEVEMENT<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 opacity-90">HELIX</span>
                         </h1>
-                        <p className="text-lg text-gray-400 max-w-lg font-light leading-relaxed border-l-2 border-accent-emerald pl-6">
+                        <p className="text-base sm:text-lg text-gray-400 max-w-lg font-light leading-relaxed border-l-2 border-accent-emerald pl-4 sm:pl-6">
                             Mapping the genetic markers of success. A comprehensive chronological sequence of grants, competitions, and academic honors.
                         </p>
                     </section>
@@ -399,6 +399,26 @@ const AwardsPage = () => {
                                     <div className="w-1 h-1 bg-accent-emerald"></div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    {/* Mobile Stats Section - Visible only on mobile/tablet */}
+                    <div className="lg:hidden mb-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <div className="bg-[#13161c]/80 backdrop-blur-sm border border-[#1f2937] rounded-lg p-4 text-center">
+                            <div className="text-2xl font-bold text-white font-mono">{awardsData.length}</div>
+                            <div className="text-[10px] text-gray-400 font-mono uppercase">Total Awards</div>
+                        </div>
+                        <div className="bg-[#13161c]/80 backdrop-blur-sm border border-[#1f2937] rounded-lg p-4 text-center">
+                            <div className="text-2xl font-bold text-yellow-400 font-mono">{awardsData.filter(a => a.tags.includes('Gold Medal')).length}</div>
+                            <div className="text-[10px] text-gray-400 font-mono uppercase">Gold Medals</div>
+                        </div>
+                        <div className="bg-[#13161c]/80 backdrop-blur-sm border border-[#1f2937] rounded-lg p-4 text-center">
+                            <div className="text-2xl font-bold text-blue-400 font-mono">{awardsData.filter(a => a.category === 'international').length}</div>
+                            <div className="text-[10px] text-gray-400 font-mono uppercase">International</div>
+                        </div>
+                        <div className="bg-[#13161c]/80 backdrop-blur-sm border border-[#1f2937] rounded-lg p-4 text-center">
+                            <div className="text-2xl font-bold text-orange-400 font-mono">{awardsData.filter(a => a.category === 'publications').length}</div>
+                            <div className="text-[10px] text-gray-400 font-mono uppercase">Publications</div>
                         </div>
                     </div>
 
@@ -522,14 +542,14 @@ const AwardsPage = () => {
                         </div>
 
                         {/* Content */}
-                        <div className="lg:col-span-5 space-y-12 relative">
+                        <div className="lg:col-span-8 xl:lg:col-span-5 space-y-8 sm:space-y-12 relative">
                             {/* Right Side Decoration */}
                             <div className="tech-decoration hidden xl:block z-0" style={{ right: '-40px' }}></div>
                             {/* Removed Old Constellation Stage */}
 
-                            <div className="flex flex-col md:flex-row items-start md:items-center justify-between border-b border-[#1f2937] pb-6 gap-4">
-                                <div className="flex items-center gap-4">
-                                    <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-[#1f2937] pb-4 sm:pb-6 gap-3 sm:gap-4">
+                                <div className="flex items-center gap-3 sm:gap-4">
+                                    <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
                                         <span className="material-symbols-outlined text-accent-emerald">leaderboard</span>
                                         GENETIC MARKERS
                                     </h2>
@@ -552,7 +572,7 @@ const AwardsPage = () => {
                                 </div>
                             </div>
 
-                            <div className="relative pl-8 space-y-8">
+                            <div className="relative pl-4 sm:pl-8 space-y-6 sm:space-y-8">
                                 <div className="timeline-line"></div>
 
                                 {filteredAwards.map((award) => (
@@ -589,7 +609,7 @@ const AwardsPage = () => {
                                                 </div>
                                             </div>
 
-                                            <p className="text-sm text-gray-300 leading-relaxed max-w-2xl mb-4 border-l-2 border-[#333] pl-3">
+                                            <p className="text-sm text-gray-300 leading-relaxed max-w-2xl mb-3 sm:mb-4 border-l-2 border-[#333] pl-2 sm:pl-3">
                                                 {award.desc}
                                             </p>
 

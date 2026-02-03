@@ -199,3 +199,60 @@
         opacity: 0.8;
     }
 }
+
+/* ================================
+   MOBILE RESPONSIVE STYLES
+   ================================ */
+
+@media (max-width: 1024px) {
+    .molecule-wrapper {
+        transform: scale(0.8);
+    }
+
+    .molecule-structure {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .molecule-wrapper {
+        display: none;
+    }
+
+    .timeline-line {
+        left: -4px;
+    }
+
+    .pub-marker-icon {
+        left: -18px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .chart-mini {
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pub-marker-icon {
+        left: -14px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .chart-mini {
+        height: 40px;
+    }
+
+    .atom {
+        width: 14px;
+        height: 14px;
+    }
+
+    .atom.center {
+        width: 28px;
+        height: 28px;
+    }
+}

@@ -96,22 +96,35 @@ const ResearchPage = () => {
             <div className="w-full relative z-10">
                 <Navbar />
 
-                <main className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 pt-32">
+                <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-8 sm:py-12 pt-24 sm:pt-32">
                     <section className="mb-16">
                         <div className="inline-flex items-center gap-2 mb-4 border border-emerald-500/30 px-3 py-1 rounded bg-emerald-900/10 backdrop-blur-sm w-fit animate-fade-in-up">
                             <span className="material-symbols-outlined text-emerald-400 text-[14px]">science</span>
                             <span className="text-[10px] font-mono text-emerald-400 tracking-widest uppercase">Publications & Patents</span>
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-6 animate-fade-in-up delay-100">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-4 sm:mb-6 animate-fade-in-up delay-100">
                             SCIENTIFIC<br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600">PUBLICATIONS</span>
                         </h1>
-                        <p className="text-lg text-gray-400 max-w-lg font-light leading-relaxed border-l-2 border-emerald-500 pl-6 animate-fade-in-up delay-200">
+                        <p className="text-base sm:text-lg text-gray-400 max-w-lg font-light leading-relaxed border-l-2 border-emerald-500 pl-4 sm:pl-6 animate-fade-in-up delay-200">
                             Disseminating breakthroughs in medical science and biotechnology. A curated collection of peer-reviewed papers, systematic reviews, and international presentations by Daivan Febri Juan Setiya.
                         </p>
                     </section>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 min-h-screen">
+                    {/* Mobile Honors Section */}
+                    <div className="lg:hidden mb-8">
+                        <h3 className="text-sm font-bold text-white uppercase tracking-widest border-b border-gray-800 pb-2 mb-4">Recent Honors</h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {awards.slice(0, 4).map((award, idx) => (
+                                <div key={idx} className="text-xs text-gray-400 font-mono flex items-start gap-2 bg-[#13161c]/50 p-3 rounded border border-[#1f2937]">
+                                    <span className="text-emerald-500 mt-0.5">▹</span>
+                                    <span className="line-clamp-2">{award}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 min-h-screen">
                         {/* Sidebar with Molecule */}
                         <div className="lg:col-span-4 hidden lg:block relative">
                             <div className="sticky top-32 h-[500px] w-full border border-[#1f2937] bg-[#13161c]/50 rounded-lg backdrop-blur-sm overflow-hidden flex flex-col items-center justify-center">
@@ -165,7 +178,7 @@ const ResearchPage = () => {
                                 <span className="text-[10px] font-mono text-gray-500 border border-gray-800 px-2 py-1 rounded hidden md:block">FILTER: ALL</span>
                             </div>
 
-                            <div className="relative pl-8 space-y-12">
+                            <div className="relative pl-4 sm:pl-8 space-y-8 sm:space-y-12">
                                 {/* The Vertical Line */}
                                 <div className="timeline-line"></div>
 
@@ -213,7 +226,7 @@ const ResearchPage = () => {
                                             )}
                                         </div>
 
-                                        <div className="p-6 relative z-10">
+                                        <div className="p-4 sm:p-6 relative z-10">
                                             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
                                                 <div>
                                                     <div className="flex items-center gap-2 mb-2">

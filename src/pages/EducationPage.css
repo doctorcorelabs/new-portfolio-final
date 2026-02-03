@@ -90,3 +90,45 @@
     width: 1px;
     background: linear-gradient(to bottom, #06b6d4 0%, #1f2937 100%);
 }
+
+/* ================================
+   MOBILE RESPONSIVE STYLES
+   ================================ */
+
+@media (max-width: 768px) {
+    .microscope-container {
+        height: 250px;
+    }
+
+    .microscope-abstract {
+        transform: scale(0.7);
+    }
+
+    .lens-ring {
+        box-shadow: 0 0 10px #06b6d4;
+    }
+
+    .tech-marker::before {
+        left: -14px;
+        width: 5px;
+        height: 5px;
+    }
+
+    .timeline-line {
+        left: -4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .microscope-container {
+        height: 200px;
+    }
+
+    .microscope-abstract {
+        transform: scale(0.5);
+    }
+
+    .scale-bar {
+        height: 3px;
+    }
+}

@@ -14,36 +14,36 @@ const EducationPage = () => {
 
             <Navbar />
 
-            <main className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 relative z-10">
-                <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24 min-h-[60vh] pt-12">
+            <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-8 sm:py-12 relative z-10">
+                <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 lg:mb-24 min-h-[50vh] lg:min-h-[60vh] pt-8 sm:pt-12">
                     <div className="space-y-6">
                         <div className="inline-flex items-center gap-2 mb-2 border border-accent-cyan/30 px-3 py-1 rounded bg-accent-cyan/10 backdrop-blur-sm w-fit">
                             <span className="material-symbols-outlined text-accent-cyan text-[14px]">school</span>
                             <span className="text-[10px] font-mono text-accent-cyan tracking-widest uppercase">Academic Database v1.0</span>
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white leading-[1.1]">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1]">
                             THE ACADEMIC<br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-400 to-gray-600">SIGNAL</span>
                         </h1>
-                        <p className="text-lg text-gray-400 max-w-lg font-light leading-relaxed border-l-2 border-accent-cyan pl-6">
+                        <p className="text-base sm:text-lg text-gray-400 max-w-lg font-light leading-relaxed border-l-2 border-accent-cyan pl-4 sm:pl-6">
                             Decoding the foundational knowledge structures that power current bio-engineering and medical research. A timeline of rigorous inquiry and certification.
                         </p>
-                        <div className="grid grid-cols-3 gap-4 pt-8 max-w-md">
-                            <div className="border border-[#1f2937] bg-[#13161c] p-4 text-center hover:border-accent-cyan transition-colors card-cyan-border">
-                                <div className="text-2xl font-mono text-white mb-1">3.91</div>
-                                <div className="text-[10px] text-accent-cyan uppercase tracking-wider">Cum. GPA</div>
+                        <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-6 sm:pt-8 max-w-md">
+                            <div className="border border-[#1f2937] bg-[#13161c] p-3 sm:p-4 text-center hover:border-accent-cyan transition-colors card-cyan-border">
+                                <div className="text-xl sm:text-2xl font-mono text-white mb-1">3.91</div>
+                                <div className="text-[9px] sm:text-[10px] text-accent-cyan uppercase tracking-wider">Cum. GPA</div>
                             </div>
-                            <div className="border border-[#1f2937] bg-[#13161c] p-4 text-center hover:border-accent-cyan transition-colors card-cyan-border">
-                                <div className="text-2xl font-mono text-white mb-1">MED</div>
-                                <div className="text-[10px] text-accent-cyan uppercase tracking-wider">Major</div>
+                            <div className="border border-[#1f2937] bg-[#13161c] p-3 sm:p-4 text-center hover:border-accent-cyan transition-colors card-cyan-border">
+                                <div className="text-xl sm:text-2xl font-mono text-white mb-1">MED</div>
+                                <div className="text-[9px] sm:text-[10px] text-accent-cyan uppercase tracking-wider">Major</div>
                             </div>
-                            <div className="border border-[#1f2937] bg-[#13161c] p-4 text-center hover:border-accent-cyan transition-colors card-cyan-border">
-                                <div className="text-2xl font-mono text-white mb-1">20+</div>
-                                <div className="text-[10px] text-accent-cyan uppercase tracking-wider">Certs</div>
+                            <div className="border border-[#1f2937] bg-[#13161c] p-3 sm:p-4 text-center hover:border-accent-cyan transition-colors card-cyan-border">
+                                <div className="text-xl sm:text-2xl font-mono text-white mb-1">20+</div>
+                                <div className="text-[9px] sm:text-[10px] text-accent-cyan uppercase tracking-wider">Certs</div>
                             </div>
                         </div>
                     </div>
-                    <div className="relative h-[400px] w-full flex items-center justify-center microscope-container">
+                    <div className="relative h-[250px] sm:h-[300px] md:h-[400px] w-full flex items-center justify-center microscope-container">
                         <div className="microscope-abstract relative w-64 h-64">
                             <div className="absolute inset-0 border border-accent-cyan/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
                             <div className="absolute inset-4 border border-dashed border-accent-emerald/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
@@ -58,7 +58,7 @@ const EducationPage = () => {
                     </div>
                 </section>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-[#1f2937] pt-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 border-t border-[#1f2937] pt-8 sm:pt-12">
                     <div className="lg:col-span-7 space-y-10">
                         <div className="flex items-center justify-between mb-8">
                             <h2 className="text-xl font-bold text-white flex items-center gap-3">
@@ -67,10 +67,10 @@ const EducationPage = () => {
                             </h2>
                             <span className="text-[10px] font-mono text-gray-500 border border-gray-800 px-2 py-1 rounded">SORT: CHRONOLOGICAL_DESC</span>
                         </div>
-                        <div className="relative pl-8 space-y-8">
+                        <div className="relative pl-4 sm:pl-8 space-y-6 sm:space-y-8">
                             <div className="timeline-line"></div>
 
-                            <div className="relative card-cyan-border bg-[#13161c] p-6 rounded-sm tech-marker group">
+                            <div className="relative card-cyan-border bg-[#13161c] p-4 sm:p-6 rounded-sm tech-marker group">
                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 border-b border-[#1f2937] pb-4">
                                     <div>
                                         <h3 className="text-lg font-bold text-white group-hover:text-accent-cyan transition-colors">Summer School Program</h3>
@@ -92,7 +92,7 @@ const EducationPage = () => {
                                 </div>
                             </div>
 
-                            <div className="relative card-cyan-border bg-[#13161c] p-6 rounded-sm tech-marker group">
+                            <div className="relative card-cyan-border bg-[#13161c] p-4 sm:p-6 rounded-sm tech-marker group">
                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 border-b border-[#1f2937] pb-4">
                                     <div>
                                         <h3 className="text-lg font-bold text-white group-hover:text-accent-cyan transition-colors">Bachelor of Medicine</h3>
@@ -116,7 +116,7 @@ const EducationPage = () => {
                                 </div>
                             </div>
 
-                            <div className="relative card-cyan-border bg-[#13161c] p-6 rounded-sm tech-marker group">
+                            <div className="relative card-cyan-border bg-[#13161c] p-4 sm:p-6 rounded-sm tech-marker group">
                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 border-b border-[#1f2937] pb-4">
                                     <div>
                                         <h3 className="text-lg font-bold text-white group-hover:text-accent-cyan transition-colors">Senior High School</h3>

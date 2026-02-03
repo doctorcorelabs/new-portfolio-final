@@ -12,24 +12,24 @@ const About = () => {
                         Guided by the principle <span className="text-white font-normal italic">'Ad maiora natus sum'</span> (born for greater things), I view medicine as a pathway to transformative service. My goal is to move beyond immediate solutions and create sustainable health systems for Indonesia. This drive for excellence motivates me to absorb every piece of knowledge during my undergraduate years, knowing that 'greater things' are achieved through relentless preparation and a commitment to lasting impact.
                     </p>
                 </div>
-                <div className="bg-card-dark p-8 rounded-2xl border border-border-dark">
+                <div className="bg-card-dark p-6 sm:p-8 rounded-2xl border border-border-dark">
                     <h3 className="text-white font-bold mb-4">Personal Details</h3>
                     <ul className="space-y-4 text-sm text-gray-400">
-                        <li className="flex justify-between border-b border-border-dark pb-2">
-                            <span>Location</span>
+                        <li className="flex flex-col sm:flex-row sm:justify-between border-b border-border-dark pb-2 gap-1">
+                            <span className="text-gray-500">Location</span>
                             <span className="text-white">Indonesia</span>
                         </li>
-                        <li className="flex justify-between border-b border-border-dark pb-2">
-                            <span>University</span>
+                        <li className="flex flex-col sm:flex-row sm:justify-between border-b border-border-dark pb-2 gap-1">
+                            <span className="text-gray-500">University</span>
                             <span className="text-white">Islamic University of Indonesia</span>
                         </li>
-                        <li className="flex justify-between border-b border-border-dark pb-2">
-                            <span>Interests</span>
+                        <li className="flex flex-col sm:flex-row sm:justify-between border-b border-border-dark pb-2 gap-1">
+                            <span className="text-gray-500">Interests</span>
                             <span className="text-white">Research, Public Health, Cancer</span>
                         </li>
-                        <li className="flex justify-between pt-2">
-                            <span>Email</span>
-                            <span className="text-white">daivanfebrijuansetiya@gmail.com</span>
+                        <li className="flex flex-col sm:flex-row sm:justify-between pt-2 gap-1">
+                            <span className="text-gray-500">Email</span>
+                            <span className="text-white text-sm break-all">daivanfebrijuansetiya@gmail.com</span>
                         </li>
                     </ul>
                 </div>

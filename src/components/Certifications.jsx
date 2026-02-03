@@ -32,11 +32,11 @@ const Certifications = () => {
 
     return (
         <div className="w-full py-20 border-t border-white/5">
-            <div className="flex justify-between items-end mb-12">
+            <div className="flex justify-between items-center mb-12">
                 <h2 className="text-sm font-bold text-gray-500 uppercase tracking-widest flex items-center gap-2">
                     <span className="w-8 h-[1px] bg-white"></span> Certifications
                 </h2>
-                <Link to="/certifications" className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1 group">
+                <Link to="/certifications" className="hidden md:flex text-sm text-gray-400 hover:text-white transition-colors items-center gap-1 group">
                     View All Certifications <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </Link>
             </div>

@@ -198,13 +198,13 @@ function CertificationsPage() {
             <div className="fixed inset-0 emerald-pulse-bg z-0 pointer-events-none"></div>
             <div className="w-full relative z-10 bg-grid-pattern bg-fixed">
 
-                <main className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12">
+                <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-8 sm:py-12">
                     <section className="mb-16">
                         <div className="inline-flex items-center gap-2 mb-4 border border-accent-emerald/30 px-3 py-1 rounded bg-accent-emerald/10 backdrop-blur-sm w-fit">
                             <span className="material-symbols-outlined text-accent-emerald text-[14px]">verified_user</span>
                             <span className="text-[10px] font-mono text-accent-emerald tracking-widest uppercase">Certified Records</span>
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-6">
                             VERIFIED<br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600">CERTIFICATIONS</span>
                         </h1>

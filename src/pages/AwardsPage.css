@@ -270,3 +270,52 @@
         opacity: 1;
     }
 }
+
+/* ================================
+   MOBILE RESPONSIVE STYLES
+   ================================ */
+
+@media (max-width: 1024px) {
+    .dna-wrapper {
+        display: none;
+    }
+
+    .dna-helix {
+        width: 60px;
+        height: 400px;
+    }
+
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .gene-marker-icon {
+        left: -16px;
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-line {
+        left: -8px;
+    }
+
+    .gene-marker-icon {
+        left: -12px;
+        top: 20px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .tech-decoration {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .base-pair {
+        animation-duration: 6s;
+    }
+}
