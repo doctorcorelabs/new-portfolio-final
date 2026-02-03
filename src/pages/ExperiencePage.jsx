@@ -149,11 +149,11 @@ const ExperiencePage = () => {
 
                 <main className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12">
                     <section className="mb-16">
-                        <div className="inline-flex items-center gap-2 mb-4 border border-accent-emerald/30 px-3 py-1 rounded bg-accent-emerald/10 backdrop-blur-sm w-fit">
+                        <div className="inline-flex items-center gap-2 mb-4 border border-accent-emerald/30 px-3 py-1 rounded bg-accent-emerald/10 backdrop-blur-sm w-fit animate-heartbeat-badge">
                             <span className="material-symbols-outlined text-accent-emerald text-[14px]">ecg_heart</span>
                             <span className="text-[10px] font-mono text-accent-emerald tracking-widest uppercase">Professional Timeline</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-4 sm:mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-4 sm:mb-6 animate-header-tracking">
                             ACADEMIC &<br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600">CAREER PATH</span>
                         </h1>
@@ -272,7 +272,7 @@ const ExperiencePage = () => {
                                                     <h3 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-2">
                                                         <span className="material-symbols-outlined text-sm">assignment</span> Role Overview
                                                     </h3>
-                                                    <p className="text-gray-400 text-sm leading-relaxed font-light">
+                                                    <p className="text-gray-400 text-sm leading-relaxed font-light text-justify">
                                                         {item.description}
                                                     </p>
                                                 </div>

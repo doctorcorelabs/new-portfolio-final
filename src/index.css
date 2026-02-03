@@ -204,3 +204,247 @@ html {
     display: block;
   }
 }
+
+/* ================================
+   BADGE ANIMATIONS
+   ================================ */
+
+/* 1. Pulse Alert (Red/Warning style) - for Research Active */
+@keyframes pulse-alert {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.2);
+    /* green pulse base */
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 0 10px 0 rgba(74, 222, 128, 0.5);
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-badge {
+  animation: pulse-alert 2s infinite;
+}
+
+/* 2. Slide Reveal (Cyber style) - for Academic Database */
+@keyframes slide-reveal-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-cyber-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: slide-reveal-shimmer 3s infinite linear;
+}
+
+/* 3. Sheen (Gold/Premium style) - for Colors/Honors */
+@keyframes gold-sheen {
+
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  50% {
+    border-color: rgba(250, 204, 21, 0.5);
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.2);
+  }
+}
+
+.animate-gold-glow {
+  animation: gold-sheen 3s ease-in-out infinite;
+}
+
+/* 4. Glitch Text - for Publications */
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+
+  20% {
+    transform: skew(-10deg);
+  }
+
+  40% {
+    transform: skew(10deg);
+  }
+
+  60% {
+    transform: skew(-5deg);
+  }
+
+  80% {
+    transform: skew(5deg);
+  }
+
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+.animate-glitch-badge:hover {
+  animation: glitch-skew 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes border-pulse-cyan {
+
+  0%,
+  100% {
+    border-color: rgba(6, 182, 212, 0.3);
+  }
+
+  50% {
+    border-color: rgba(6, 182, 212, 0.8);
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+  }
+}
+
+.animate-cyan-border {
+  animation: border-pulse-cyan 2s infinite;
+}
+
+/* 5. Heartbeat (Health style) - for Timeline */
+@keyframes heartbeat-badge {
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.05);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ================================
+   HEADER TEXT ENTRANCE ANIMATIONS
+   ================================ */
+
+/* 1. Glitch Reveal (Education) */
+@keyframes glitch-text {
+  0% {
+    transform: skew(20deg);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  40% {
+    transform: skew(-15deg);
+    opacity: 0.5;
+    filter: blur(2px);
+  }
+
+  80% {
+    transform: skew(5deg);
+    opacity: 0.9;
+    filter: blur(0);
+  }
+
+  100% {
+    transform: skew(0deg);
+    opacity: 1;
+    filter: none;
+  }
+}
+
+.animate-header-glitch {
+  animation: glitch-text 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* 2. Blur Focus (About) */
+@keyframes blur-focus {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+    transform: scale(1.1);
+  }
+
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-header-blur {
+  animation: blur-focus 1.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation-delay: 0.2s;
+}
+
+/* 3. Slide Up Fade (Research) */
+@keyframes slide-up-fade {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-header-slide {
+  animation: slide-up-fade 0.8s ease-out both;
+  animation-delay: 0.1s;
+}
+
+/* 4. Tracking Expand (Experience) */
+@keyframes tracking-expand {
+  0% {
+    letter-spacing: -10px;
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.animate-header-tracking {
+  animation: tracking-expand 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+/* 5. Stamp Impact (Certifications) */
+@keyframes stamp-impact {
+  0% {
+    transform: scale(2);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  75% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-header-stamp {
+  animation: stamp-impact 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}

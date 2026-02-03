@@ -204,7 +204,7 @@ function CertificationsPage() {
                             <span className="material-symbols-outlined text-accent-emerald text-[14px]">verified_user</span>
                             <span className="text-[10px] font-mono text-accent-emerald tracking-widest uppercase">Certified Records</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-6 animate-header-stamp">
                             VERIFIED<br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600">CERTIFICATIONS</span>
                         </h1>

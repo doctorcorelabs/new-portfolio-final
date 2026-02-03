@@ -98,11 +98,11 @@ const ResearchPage = () => {
 
                 <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-8 sm:py-12 pt-24 sm:pt-32">
                     <section className="mb-16">
-                        <div className="inline-flex items-center gap-2 mb-4 border border-emerald-500/30 px-3 py-1 rounded bg-emerald-900/10 backdrop-blur-sm w-fit animate-fade-in-up">
+                        <div className="inline-flex items-center gap-2 mb-4 border border-emerald-500/30 px-3 py-1 rounded bg-emerald-900/10 backdrop-blur-sm w-fit animate-cyan-border">
                             <span className="material-symbols-outlined text-emerald-400 text-[14px]">science</span>
                             <span className="text-[10px] font-mono text-emerald-400 tracking-widest uppercase">Publications & Patents</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-4 sm:mb-6 animate-fade-in-up delay-100">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-4 sm:mb-6 animate-header-slide">
                             SCIENTIFIC<br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600">PUBLICATIONS</span>
                         </h1>

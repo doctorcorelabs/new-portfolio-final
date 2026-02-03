@@ -321,7 +321,7 @@ const AwardsPage = () => {
 
                 <main className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12">
                     <section className="mb-16 pt-12">
-                        <div className="inline-flex items-center gap-2 mb-4 border border-accent-emerald/30 px-3 py-1 rounded bg-accent-emerald/10 backdrop-blur-sm w-fit">
+                        <div className="inline-flex items-center gap-2 mb-4 border border-accent-emerald/30 px-3 py-1 rounded bg-accent-emerald/10 backdrop-blur-sm w-fit animate-gold-glow">
                             <span className="material-symbols-outlined text-accent-emerald text-[14px]">stars</span>
                             <span className="text-[10px] font-mono text-accent-emerald tracking-widest uppercase">Honors &amp; Grants</span>
                         </div>

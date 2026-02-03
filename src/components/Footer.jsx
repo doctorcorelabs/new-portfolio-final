@@ -14,7 +14,7 @@ const Footer = () => {
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
                         Daivan<span className="text-gray-500">.</span>
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed font-light">
+                    <p className="text-gray-400 text-sm leading-relaxed font-light text-justify">
                         Medical Student & Researcher dedicated to enhancing healthcare standards through innovation, education, and sustainable change.
                     </p>
                 </div>

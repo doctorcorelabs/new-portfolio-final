@@ -57,11 +57,11 @@ const AboutPage = () => {
                             </div>
                         </div>
                         <div className="max-w-screen-2xl mx-auto relative z-30 w-full">
-                            <div className="inline-flex items-center gap-2 mb-6 border border-accent-cyan/30 px-3 py-1 rounded bg-accent-cyan/10 backdrop-blur-sm">
+                            <div className="inline-flex items-center gap-2 mb-6 border border-accent-cyan/30 px-3 py-1 rounded bg-accent-cyan/10 backdrop-blur-sm animate-pulse-badge">
                                 <span className="w-1.5 h-1.5 bg-accent-emerald rounded-full animate-pulse"></span>
                                 <span className="text-[10px] font-mono text-accent-cyan tracking-widest uppercase">Research Active</span>
                             </div>
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[7rem] xl:text-[8rem] font-bold tracking-tighter text-white mb-6 sm:mb-8 leading-[0.9]">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[7rem] xl:text-[8rem] font-bold tracking-tighter text-white mb-6 sm:mb-8 leading-[0.9] animate-header-blur">
                                 MEDICAL<br />
                                 <span className="text-gradient-header">RESEARCHER</span>
                             </h1>

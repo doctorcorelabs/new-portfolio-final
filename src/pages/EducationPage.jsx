@@ -17,11 +17,11 @@ const EducationPage = () => {
             <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-8 sm:py-12 relative z-10">
                 <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 lg:mb-24 min-h-[50vh] lg:min-h-[60vh] pt-8 sm:pt-12">
                     <div className="space-y-6">
-                        <div className="inline-flex items-center gap-2 mb-2 border border-accent-cyan/30 px-3 py-1 rounded bg-accent-cyan/10 backdrop-blur-sm w-fit">
+                        <div className="inline-flex items-center gap-2 mb-2 border border-accent-cyan/30 px-3 py-1 rounded bg-accent-cyan/10 backdrop-blur-sm w-fit animate-cyber-shimmer">
                             <span className="material-symbols-outlined text-accent-cyan text-[14px]">school</span>
                             <span className="text-[10px] font-mono text-accent-cyan tracking-widest uppercase">Academic Database v1.0</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1]">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-[1.1] animate-header-glitch">
                             THE ACADEMIC<br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-400 to-gray-600">SIGNAL</span>
                         </h1>

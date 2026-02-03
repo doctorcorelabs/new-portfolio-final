@@ -43,7 +43,7 @@ const Experience = () => {
                             <h3 className="text-lg md:text-xl font-bold text-white mb-2 group-hover:text-gray-200 transition-colors">
                                 {exp.role} <span className="text-gray-500 mx-2">·</span> <span className="text-gray-400 font-normal">{exp.company}</span>
                             </h3>
-                            <p className="text-gray-400 leading-relaxed text-sm font-light">
+                            <p className="text-gray-400 leading-relaxed text-sm font-light text-justify">
                                 {exp.description}
                             </p>
                         </div>
