@@ -704,8 +704,8 @@ const AwardsPage = () => {
                     </div>
                 </main>
 
-                <Footer />
             </div>
+            <Footer />
         </div>
     );
 };

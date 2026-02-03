@@ -3,13 +3,26 @@ import React from 'react';
 const Education = () => {
     const educationData = [
         {
+            university: "Chulalongkorn University",
+            degree: "Summer School Program",
+            year: "2025",
+            description: "Intensive training in Pharmaceutical & Clinical Development (AASP-PECT).",
+            logo: "science"
+        },
+        {
             university: "Islamic University of Indonesia",
             degree: "Bachelor of Medicine",
             year: "2021 - Present",
-            description: "Active student with a focus on medical research and public health advancement.",
+            description: "GPA 3.91/4.0. Most Outstanding Student 2025 & Beasiswa Unggulan Awardee.",
             logo: "school"
         },
-        // Add more if needed
+        {
+            university: "SMAN 1 Blora",
+            degree: "Senior High School",
+            year: "Graduated",
+            description: "Top 3 Student & 3rd Most Outstanding Student based on Final Exam.",
+            logo: "menu_book"
+        }
     ];
 
     return (

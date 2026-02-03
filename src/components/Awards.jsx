@@ -3,9 +3,10 @@ import React from 'react';
 const Awards = () => {
     // Placeholder data
     const awards = [
-        { title: "Beasiswa Unggulan Awardee", organization: "Ministry of Education, Culture, Research, and Technology", year: "2022" },
-        { title: "1st Place National Essay Competition", organization: "Medical Faculty Association", year: "2023" },
-        // Add more items
+        { title: "Gold Medal - ISIF 2025", organization: "International Science and Invention Fair", year: "2025" },
+        { title: "Most Outstanding Student 2025", organization: "Islamic University of Indonesia", year: "2025" },
+        { title: "Gold Medal - WRCSO 2025", organization: "World Robotics & Computer Science Olympiad", year: "2025" },
+        { title: "Awardee Beasiswa Unggulan", organization: "Ministry of Education, Culture, Research, and Technology", year: "2023" }
     ];
 
     return (

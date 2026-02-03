@@ -8,13 +8,8 @@ const About = () => {
                     <h2 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6 flex items-center gap-2">
                         <span className="w-8 h-[1px] bg-accent-green"></span> About Me
                     </h2>
-                    <p className="text-gray-300 leading-relaxed mb-6">
-                        My journey in medicine involves a deep commitment to understanding the complexities of human health.
-                        Beyond the clinic, I advocate for health equity and engage in rigorous research to find data-driven solutions for public health challenges.
-                    </p>
-                    <p className="text-gray-400 leading-relaxed text-sm">
-                        When I'm not studying or conducting research, I enjoy [Hobbies Placeholder: e.g., reading classic literature, hiking, or photography].
-                        I believe that maintaining a balanced life is crucial for long-term success.
+                    <p className="text-gray-300 leading-relaxed text-base md:text-lg max-w-2xl font-light text-justify">
+                        Guided by the principle <span className="text-white font-normal italic">'Ad maiora natus sum'</span> (born for greater things), I view medicine as a pathway to transformative service. My goal is to move beyond immediate solutions and create sustainable health systems for Indonesia. This drive for excellence motivates me to absorb every piece of knowledge during my undergraduate years, knowing that 'greater things' are achieved through relentless preparation and a commitment to lasting impact.
                     </p>
                 </div>
                 <div className="bg-card-dark p-8 rounded-2xl border border-border-dark">
@@ -30,11 +25,11 @@ const About = () => {
                         </li>
                         <li className="flex justify-between border-b border-border-dark pb-2">
                             <span>Interests</span>
-                            <span className="text-white">Research, Public Health, Surgery</span>
+                            <span className="text-white">Research, Public Health, Cancer</span>
                         </li>
                         <li className="flex justify-between pt-2">
                             <span>Email</span>
-                            <span className="text-white">contact@daivan.com</span>
+                            <span className="text-white">daivanfebrijuansetiya@gmail.com</span>
                         </li>
                     </ul>
                 </div>

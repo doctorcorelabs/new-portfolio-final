@@ -44,17 +44,22 @@ function Home() {
   );
 }
 
+import ScrollToHash from './components/ScrollToHash';
+
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/education" element={<EducationPage />} />
-      <Route path="/awards" element={<AwardsPage />} />
-      <Route path="/research" element={<ResearchPage />} />
-      <Route path="/experience" element={<ExperiencePage />} />
-      <Route path="/certifications" element={<CertificationsPage />} />
-    </Routes>
+    <>
+      <ScrollToHash />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/education" element={<EducationPage />} />
+        <Route path="/awards" element={<AwardsPage />} />
+        <Route path="/research" element={<ResearchPage />} />
+        <Route path="/experience" element={<ExperiencePage />} />
+        <Route path="/certifications" element={<CertificationsPage />} />
+      </Routes>
+    </>
   );
 }
 

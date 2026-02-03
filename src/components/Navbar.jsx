@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
 
     const links = [
         { name: 'Home', href: '/' },
@@ -27,11 +28,16 @@ const Navbar = () => {
 
                 {/* Desktop Navigation */}
                 <div className="hidden lg:flex items-center space-x-6 text-sm font-medium">
-                    {links.map((link) => (
-                        link.href.startsWith('/') ? (
+                    {links.map((link) => {
+                        let href = link.href;
+                        if (link.name === 'Contact' && location.pathname !== '/') {
+                            href = '/#contact';
+                        }
+
+                        return href.startsWith('/') ? (
                             <Link
                                 key={link.name}
-                                to={link.href}
+                                to={href}
                                 className="text-gray-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1.5 rounded-lg"
                             >
                                 {link.name}
@@ -39,13 +45,13 @@ const Navbar = () => {
                         ) : (
                             <a
                                 key={link.name}
-                                href={link.href}
+                                href={href}
                                 className="text-gray-400 hover:text-white transition-colors hover:bg-white/5 px-3 py-1.5 rounded-lg"
                             >
                                 {link.name}
                             </a>
-                        )
-                    ))}
+                        );
+                    })}
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -63,11 +69,16 @@ const Navbar = () => {
             {isOpen && (
                 <div className="lg:hidden absolute top-20 left-0 w-full bg-background-dark/95 backdrop-blur-xl border-b border-white/10">
                     <div className="px-6 py-4 space-y-3 flex flex-col">
-                        {links.map((link) => (
-                            link.href.startsWith('/') ? (
+                        {links.map((link) => {
+                            let href = link.href;
+                            if (link.name === 'Contact' && location.pathname !== '/') {
+                                href = '/#contact';
+                            }
+
+                            return href.startsWith('/') ? (
                                 <Link
                                     key={link.name}
-                                    to={link.href}
+                                    to={href}
                                     className="text-gray-400 hover:text-white transition-colors py-2 border-b border-white/5 last:border-0"
                                     onClick={() => setIsOpen(false)}
                                 >
@@ -76,14 +87,14 @@ const Navbar = () => {
                             ) : (
                                 <a
                                     key={link.name}
-                                    href={link.href}
+                                    href={href}
                                     className="text-gray-400 hover:text-white transition-colors py-2 border-b border-white/5 last:border-0"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}
                                 </a>
-                            )
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             )}

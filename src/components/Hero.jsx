@@ -23,7 +23,7 @@ const Hero = () => {
                         </div>
 
                         <div className="p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl">
-                            <p className="text-gray-400 leading-relaxed text-base md:text-lg max-w-2xl mx-auto lg:mx-0 font-light">
+                            <p className="text-gray-400 leading-relaxed text-base md:text-lg max-w-2xl mx-auto lg:mx-0 font-light text-justify">
                                 "A fourth year undergraduate student majoring in Medicine at Islamic University of Indonesia.
                                 Deeply passionate about acquiring new knowledge and having diverse experiences.
                                 Aiming to enhance the health standards in Indonesia, bring about sustainable change,

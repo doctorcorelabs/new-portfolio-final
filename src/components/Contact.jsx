@@ -15,24 +15,17 @@ const Contact = () => {
 
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <a
-                        href="mailto:contact@daivan.com"
+                        href="mailto:daivanfebrijuansetiya@gmail.com"
                         className="px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition-all flex items-center justify-center gap-2 hover-lift"
                     >
                         <span className="material-icons text-sm">email</span> Email Me
                     </a>
-                    <a
-                        href="#"
-                        className="px-8 py-4 border border-white/20 text-white font-medium rounded-full hover:bg-white/5 backdrop-blur-md transition-all flex items-center justify-center gap-2"
-                    >
-                        <span className="material-icons text-sm">calendar_today</span> Schedule Call
-                    </a>
                 </div>
 
                 <div className="mt-16 flex justify-center gap-8 text-gray-500">
-                    <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-                    <a href="#" className="hover:text-white transition-colors">ResearchGate</a>
-                    <a href="#" className="hover:text-white transition-colors">Twitter (X)</a>
-                    <a href="#" className="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://www.linkedin.com/in/daivan-febri-juan-setiya/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+                    <a href="https://orcid.org/0009-0000-2528-8459" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">ORCID</a>
+                    <a href="https://www.instagram.com/ddaiivan/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
                 </div>
             </div>
         </div>

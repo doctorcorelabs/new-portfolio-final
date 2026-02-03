@@ -15,33 +15,24 @@ const Footer = () => {
                         Daivan<span className="text-gray-500">.</span>
                     </h3>
                     <p className="text-gray-400 text-sm leading-relaxed font-light">
-                        Creative Technologist crafting digital experiences at the intersection of AI, design, and code.
+                        Medical Student & Researcher dedicated to enhancing healthcare standards through innovation, education, and sustainable change.
                     </p>
                 </div>
 
                 <div className="flex flex-col md:flex-row gap-10 md:gap-24">
                     {/* Links */}
-                    <div>
-                        <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Navigation</h4>
-                        <ul className="space-y-3">
-                            <li><a className="text-gray-400 hover:text-white transition-colors text-sm" href="#about">About</a></li>
-                            <li><a className="text-gray-400 hover:text-white transition-colors text-sm" href="#education">Education</a></li>
-                            <li><a className="text-gray-400 hover:text-white transition-colors text-sm" href="#research">Research</a></li>
-                        </ul>
-                    </div>
+
 
                     {/* Social */}
-                    {location.pathname !== '/education' && (
-                        <div>
-                            <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Connect</h4>
-                            <ul className="space-y-3">
-                                <li><a className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2" href="#">Twitter / X <span className="material-icons text-xs">arrow_outward</span></a></li>
-                                <li><a className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2" href="#">GitHub <span className="material-icons text-xs">arrow_outward</span></a></li>
-                                <li><a className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2" href="#">LinkedIn <span className="material-icons text-xs">arrow_outward</span></a></li>
-                                <li><a className="text-gray-400 hover:text-white transition-colors text-sm" href="mailto:contact@daivan.com">Email</a></li>
-                            </ul>
-                        </div>
-                    )}
+                    <div>
+                        <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Connect</h4>
+                        <ul className="space-y-3">
+                            <li><a className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2" href="https://www.linkedin.com/in/daivan-febri-juan-setiya/" target="_blank" rel="noopener noreferrer">LinkedIn <span className="material-icons text-xs">arrow_outward</span></a></li>
+                            <li><a className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2" href="https://orcid.org/0009-0000-2528-8459" target="_blank" rel="noopener noreferrer">ORCID <span className="material-icons text-xs">arrow_outward</span></a></li>
+                            <li><a className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2" href="https://www.instagram.com/ddaiivan/" target="_blank" rel="noopener noreferrer">Instagram <span className="material-icons text-xs">arrow_outward</span></a></li>
+                            <li><a className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2" href="mailto:daivanfebrijuansetiya@gmail.com">Email <span className="material-icons text-xs">email</span></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 

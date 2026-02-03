@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import './AboutPage.css';
+import Footer from '../components/Footer';
 
 const AboutPage = () => {
 
@@ -311,30 +312,7 @@ const AboutPage = () => {
                         </div>
                     </div>
                 </main>
-                <footer className="w-full border-t border-[#1f2937] py-12 px-6 md:px-12 bg-[#0a0a0a] relative z-10">
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-sm text-gray-500">
-                        <div className="mb-8 md:mb-0">
-                            <p className="text-white font-bold mb-2 flex items-center gap-2">
-                                <span className="material-symbols-outlined text-accent-cyan text-sm">science</span> DaivanLabs.
-                            </p>
-                            <p className="font-mono text-xs">© 2026. Designed in the Lab.</p>
-                        </div>
-                        <div className="grid grid-cols-2 md:flex md:space-x-8 gap-4 font-mono text-xs">
-                            <a className="hover:text-accent-cyan transition-colors flex items-center gap-1" href="https://www.researchgate.net/" target="_blank" rel="noreferrer">
-                                ResearchGate <span className="material-symbols-outlined text-[10px]">arrow_outward</span>
-                            </a>
-                            <a className="hover:text-accent-cyan transition-colors flex items-center gap-1" href="https://github.com/doctorcorelabs" target="_blank" rel="noreferrer">
-                                GitHub <span className="material-symbols-outlined text-[10px]">arrow_outward</span>
-                            </a>
-                            <a className="hover:text-accent-cyan transition-colors flex items-center gap-1" href="https://www.linkedin.com/in/daivan-febri-juan-setiya-118560236/" target="_blank" rel="noreferrer">
-                                LinkedIn <span className="material-symbols-outlined text-[10px]">arrow_outward</span>
-                            </a>
-                            <a className="hover:text-accent-cyan transition-colors flex items-center gap-1" href="mailto:daivanfebrijuansetiya@gmail.com">
-                                Secure Mail <span className="material-symbols-outlined text-[10px]">mail</span>
-                            </a>
-                        </div>
-                    </div>
-                </footer>
+                <Footer />
                 <a className="fixed bottom-8 right-8 z-50 p-3 bg-accent-cyan text-black rounded shadow-lg hover:shadow-cyan-500/50 hover:scale-110 transition-all hidden md:flex items-center justify-center" href="#">
                     <span className="material-symbols-outlined">arrow_upward</span>
                 </a>
