@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import ArticleChatbot from './ArticleChatbot';
 
-const WORKER_URL = 'http://localhost:8787'; // Update this after deployment
+const WORKER_URL = import.meta.env.VITE_AI_WORKER_URL || 'https://nucleus-ai-worker.daivanfebrijuansetiya.workers.dev';
 
 const CATEGORIES = [
     { value: 'all', label: 'ALL SIGNALS', color: 'white' },
