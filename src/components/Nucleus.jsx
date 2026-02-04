@@ -229,13 +229,7 @@ const NewsCard = ({ post, index, isFirst, onClick }) => {
                     </button>
                 </div>
 
-                {/* Views Badge */}
-                {post.views > 0 && (
-                    <div className="absolute top-4 right-4 text-[10px] font-mono text-gray-600 flex items-center gap-1">
-                        <span className="material-icons text-[12px]">visibility</span>
-                        {post.views}
-                    </div>
-                )}
+
             </div>
         </motion.div>
     );
